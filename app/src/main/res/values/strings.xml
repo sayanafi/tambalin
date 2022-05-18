@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">Tambalin</string>
+
+    <!-- Onboarding Screen -->
+    <string name="first_title_ob">Cari</string>
+    <string name="second_title_ob">Pilih</string>
+    <string name="third_title_ob">Panggil</string>
+
+    <string name="first_desc_ob">Cari tambal ban yang sesuai dengan jenis ban motormu</string>
+    <string name="second_desc_ob">Pilih mitra terdekat dan bisa menerima layanan tambal</string>
+    <string name="third_desc_ob">Panggil jika sudah sesuai dengan harga layanan</string>
+
+    <string name="btn_ob">Coba Sekarang</string>
+    <string name="skip_ob">Skip</string>
+
 </resources>
