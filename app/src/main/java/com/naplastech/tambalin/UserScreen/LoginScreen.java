@@ -84,18 +84,18 @@ public class LoginScreen extends AppCompatActivity {
         });
     }
 
-    private class UploadFileToServer extends AsyncTask<Void, Integer, String> {
-        @Override
-        protected void onPreExecute() {
-            progDailog = new ProgressDialog(LoginScreen.this);
-            progDailog.setMessage("Masuk...");
-            progDailog.setIndeterminate(false);
-            progDailog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-            progDailog.setCancelable(false);
-            progDailog.setCanceledOnTouchOutside(false);
-            progDailog.show();
-            super.onPreExecute();
-        }
+        private class UploadFileToServer extends AsyncTask<Void, Integer, String> {
+            @Override
+            protected void onPreExecute() {
+                progDailog = new ProgressDialog(LoginScreen.this);
+                progDailog.setMessage("Masuk...");
+                progDailog.setIndeterminate(false);
+                progDailog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+                progDailog.setCancelable(false);
+                progDailog.setCanceledOnTouchOutside(false);
+                progDailog.show();
+                super.onPreExecute();
+            }
 
         @Override
         protected String doInBackground(Void... params) {
@@ -110,7 +110,7 @@ public class LoginScreen extends AppCompatActivity {
         }
 
         private String uploadFile() throws Exception {
-            URL url = new URL("https://tambalin.my.id");
+            URL url = new URL("https://tambalin.my.id/login.php");
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
             AndroidMultiPartEntity entity = new AndroidMultiPartEntity(
                     new AndroidMultiPartEntity.ProgressListener() {
@@ -155,8 +155,8 @@ public class LoginScreen extends AppCompatActivity {
                     String[] hasil = result.split("\\|");
                     SharedPreferences.Editor mEditor = getSharedPreferences("MOBILE", 0).edit();
                     mEditor.putString("user", hasil[0]).apply();
-                    mEditor.putString("email", hasil[1]).apply();
-                    mEditor.putString("ponsel", hasil[2]).apply();
+//                    mEditor.putString("email", hasil[1]).apply();
+//                    mEditor.putString("ponsel", hasil[2]).apply();
 
                     Intent intent = new Intent(LoginScreen.this, MapScreen.class);
                     startActivity(intent);
