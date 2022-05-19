@@ -1,7 +1,5 @@
-package com.naplastech.tambalin;
+package com.naplastech.tambalin.FirstScreen;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.viewpager.widget.ViewPager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Html;
@@ -13,9 +11,12 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.viewpager.widget.ViewPager;
+
 import com.naplastech.tambalin.HelperClasses.SliderAdapter;
-import com.naplastech.tambalin.R;
 import com.naplastech.tambalin.MainActivity;
+import com.naplastech.tambalin.R;
 
 public class OnboardingScreen extends AppCompatActivity {
 
@@ -37,7 +38,7 @@ public class OnboardingScreen extends AppCompatActivity {
         //Hooks
         viewPager = findViewById(R.id.slider);
         dotsLayout = findViewById(R.id.dots);
-        letsGetStarted = findViewById(R.id.coba_sekarang;
+        letsGetStarted = findViewById(R.id.coba_sekarang);
 
         //Call adapter
         sliderAdapter = new SliderAdapter(this);

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/white"
     android:padding="20dp"
-    tools:context=".OnboardingScreen">
+    tools:context=".FirstScreen.OnboardingScreen">
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/slider"
@@ -40,7 +40,7 @@
             android:layout_marginStart="70dp"
             android:layout_marginEnd="70dp"
             android:background="@drawable/rounded_corner"
-            android:fontFamily="@font/opensansBold"
+            android:fontFamily="@font/bold"
             android:text="@string/btn_ob"
             android:textAllCaps="false" />
 

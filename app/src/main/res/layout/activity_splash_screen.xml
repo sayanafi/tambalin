@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SplashScreen"
+    tools:context=".FirstScreen.SplashScreen"
     android:background="@color/tosca_1">
 
 
@@ -12,7 +12,7 @@
         android:id="@+id/titlesplash"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/opensansBold"
+        android:fontFamily="@font/bold"
         android:text="@string/title_splash"
         android:textColor="@color/white"
         android:textAlignment="center"
@@ -28,7 +28,7 @@
         android:id="@+id/descsplash"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/opensansRegular"
+        android:fontFamily="@font/regular"
         android:text="@string/desc_splash"
         android:textAlignment="center"
         android:textColor="@color/white"
@@ -44,7 +44,7 @@
         android:id="@+id/powered"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/opensansRegular"
+        android:fontFamily="@font/regular"
         android:text="@string/by_splash"
         android:textColor="@color/white"
         android:textAlignment="center"
