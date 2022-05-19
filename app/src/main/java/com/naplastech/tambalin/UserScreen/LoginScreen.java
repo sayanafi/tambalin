@@ -13,7 +13,10 @@ import android.widget.EditText;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.naplastech.tambalin.MapScreen.MapScreen;
+import com.naplastech.tambalin.MitraRegisterScreen;
 import com.naplastech.tambalin.R;
+
+import org.apache.http.entity.mime.content.StringBody;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -67,7 +70,7 @@ public class LoginScreen extends AppCompatActivity {
         findViewById(R.id.buttonRegister).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(LoginScreen.this, RegisterActivity.class));
+                startActivity(new Intent(LoginScreen.this, MitraRegisterScreen.class));
             }
         });
 
