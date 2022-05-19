@@ -9,10 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Tambalin">
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".UserScreen.LoginScreen"></activity>
+        <activity android:name=".MainScreen.HomeM" />
+        <activity android:name=".MainScreen.HomeP" />
+        <activity android:name=".MainActivity" />
         <activity android:name=".FirstScreen.OnboardingScreen" />
-        <activity android:name=".FirstScreen.SplashScreen"
-                  android:theme="@style/Theme.AppCompat.NoActionBar">
+        <activity
+            android:name=".FirstScreen.SplashScreen"
+            android:theme="@style/Theme.AppCompat.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
