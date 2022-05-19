@@ -19,4 +19,16 @@
     <string name="btn_ob">Coba Sekarang</string>
     <string name="skip_ob">Lewati</string>
 
+    <!-- User Screen -->
+    <string name="title_masuk">Masuk Akun</string>
+    <string name="desc_masuk">Sudah punya akun ? masuk menggunakan Nomor Handphone</string>
+
+    <string name="fm_hp">Nomor Handphone</string>
+    <string name="fm_sandi">Kata Sandi</string>
+    <string name="fm_reset">Lupa kata sandi?</string>
+    <string name="fm_reset2">Reset</string>
+
+    <string name="btn_masuk">Masuk</string>
+    <string name="btn_daftar">Daftar</string>
+
 </resources>

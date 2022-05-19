@@ -23,8 +23,7 @@
         <activity android:name=".MainActivity" />
         <activity android:name=".FirstScreen.OnboardingScreen" />
         <activity
-            android:name=".FirstScreen.SplashScreen"
-            android:theme="@style/Theme.AppCompat.NoActionBar">
+            android:name=".FirstScreen.SplashScreen">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
 
