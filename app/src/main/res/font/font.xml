@@ -3,25 +3,25 @@
     <font
         android:fontStyle="normal"
         android:fontWeight="400"
-        android:font="@font/opensansRegular"/>
+        android:font="@font/opensansregular"/>
     <font
         android:fontStyle="italic"
         android:fontWeight="400"
-        android:font="@font/opensansItalic" />
+        android:font="@font/opensansitalic" />
     <font
         android:fontStyle="normal"
         android:fontWeight="600"
-        android:font="@font/opensansMedium" />
+        android:font="@font/opensansmedium" />
     <font
         android:fontStyle="italic"
         android:fontWeight="600"
-        android:font="@font/opensansMediumItalic" />
+        android:font="@font/opensansmediumitalic" />
     <font
         android:fontStyle="normal"
         android:fontWeight="900"
-        android:font="@font/opensansBold" />
+        android:font="@font/opensansbold" />
     <font
         android:fontStyle="italic"
         android:fontWeight="900"
-        android:font="@font/opensansBoldItalic" />
+        android:font="@font/opensansbolditalic" />
 </font-family>
