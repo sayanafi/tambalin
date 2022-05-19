@@ -9,8 +9,8 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.naplastech.tambalin.MapScreen.MapScreen;
 import com.naplastech.tambalin.R;
+import com.naplastech.tambalin.UserScreen.LoginScreen;
 
 public class SplashScreen extends AppCompatActivity {
 
@@ -40,7 +40,7 @@ public class SplashScreen extends AppCompatActivity {
         powered.setAnimation(sideAnim);
 
         new Handler().postDelayed(new Runnable() {
-            Intent intent = new Intent(SplashScreen.this, MapScreen.class);
+            Intent intent = new Intent(SplashScreen.this, LoginScreen.class);
             @Override
             public void run() {
                 startActivity(intent);

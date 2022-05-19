@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.Html;
 import android.view.View;
-import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
@@ -20,7 +19,6 @@ import com.naplastech.tambalin.R;
 
 public class OnboardingScreen extends AppCompatActivity {
 
-    //Variables
     ViewPager viewPager;
     LinearLayout dotsLayout;
     SliderAdapter sliderAdapter;
@@ -32,7 +30,7 @@ public class OnboardingScreen extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        getSupportActionBar().hide();
         setContentView(R.layout.onboarding_screen);
 
         //Hooks
@@ -60,7 +58,7 @@ public class OnboardingScreen extends AppCompatActivity {
 
     private void addDots(int position) {
 
-        dots = new TextView[4];
+        dots = new TextView[3];
         dotsLayout.removeAllViews();
 
         for (int i = 0; i < dots.length; i++) {
@@ -72,7 +70,7 @@ public class OnboardingScreen extends AppCompatActivity {
         }
 
         if (dots.length > 0) {
-            dots[position].setTextColor(getResources().getColor(R.color.tosca_2));
+            dots[position].setTextColor(getResources().getColor(R.color.tosca_1));
         }
 
     }
@@ -91,8 +89,6 @@ public class OnboardingScreen extends AppCompatActivity {
             if (position == 0) {
                 letsGetStarted.setVisibility(View.INVISIBLE);
             } else if (position == 1) {
-                letsGetStarted.setVisibility(View.INVISIBLE);
-            } else if (position == 2) {
                 letsGetStarted.setVisibility(View.INVISIBLE);
             } else {
                 animation = AnimationUtils.loadAnimation(OnboardingScreen.this, R.anim.bottom_anim);

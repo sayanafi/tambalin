@@ -22,7 +22,7 @@
     <RelativeLayout
         android:id="@+id/relativeLayout"
         android:layout_width="match_parent"
-        android:layout_height="279dp"
+        android:layout_height="230dp"
         android:layout_marginBottom="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -33,16 +33,18 @@
             android:id="@+id/coba_sekarang"
             android:layout_width="230dp"
             android:layout_height="60dp"
-            android:textSize="16dp"
-            android:letterSpacing="0"
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
             android:layout_marginStart="70dp"
             android:layout_marginEnd="70dp"
+            android:layout_marginBottom="100dp"
             android:background="@drawable/rounded_corner"
             android:fontFamily="@font/bold"
+            android:letterSpacing="0"
             android:text="@string/btn_ob"
-            android:textAllCaps="false" />
+            android:textAllCaps="false"
+            android:textSize="16dp" />
 
         <LinearLayout
             android:id="@+id/dots"
