@@ -4,12 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UserScreen.LoginScreen">
+    tools:context=".UserScreen.LoginScreen"
+    android:background="@color/white">
 
     <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="530dp"
+        android:layout_height="136dp"
+        android:layout_marginLeft="-60dp"
         app:layout_constraintBottom_toBottomOf="@+id/linearLayout"
+        app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/footeruser" />
 
     <LinearLayout
@@ -60,8 +63,10 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/inputHp"
+                android:background="@drawable/form"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:hint="62822202424242"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
@@ -70,7 +75,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:fontFamily="@font/bold"
-            android:text="@string/fm_hp"
+            android:text="@string/fm_sandi"
             android:textColor="@color/black"
             android:textSize="16dp" />
 
@@ -81,8 +86,10 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/inputPass"
+                android:background="@drawable/form"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:hint="*********"/>
         </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -123,6 +130,7 @@
             android:layout_marginTop="30dp"
             android:background="@drawable/rounded_corner"
             android:fontFamily="@font/bold"
+            android:textColor="@color/white"
             android:letterSpacing="0"
             android:text="@string/btn_masuk"
             android:textAllCaps="false"
