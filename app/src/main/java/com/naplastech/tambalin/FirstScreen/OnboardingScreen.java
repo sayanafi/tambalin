@@ -15,7 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
 import com.naplastech.tambalin.HelperClasses.SliderAdapter;
-import com.naplastech.tambalin.MainActivity;
+import com.naplastech.tambalin.MapScreen.MapScreen;
 import com.naplastech.tambalin.R;
 
 public class OnboardingScreen extends AppCompatActivity {
@@ -50,7 +50,7 @@ public class OnboardingScreen extends AppCompatActivity {
     }
 
     public void skip(View view) {
-        startActivity(new Intent(this, MainActivity.class));
+        startActivity(new Intent(this, MapScreen.class));
         finish();
     }
 
