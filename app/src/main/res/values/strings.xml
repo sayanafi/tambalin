@@ -1,6 +1,12 @@
 <resources>
     <string name="app_name">Tambalin</string>
 
+    <!-- Splash Screen -->
+    <string name="title_splash">TAMBALIN APP</string>
+    <string name="desc_splash">Splash Screen</string>
+    <string name="by_splash">Náplastech Indonesia</string>
+
+
     <!-- Onboarding Screen -->
     <string name="first_title_ob">Cari</string>
     <string name="second_title_ob">Pilih</string>
