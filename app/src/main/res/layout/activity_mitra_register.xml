@@ -268,7 +268,7 @@
                 app:layout_constraintStart_toStartOf="parent" />
 
             <Button
-                android:id="@+id/UserRegister"
+                android:id="@+id/MitraRegister"
                 android:layout_width="325dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"

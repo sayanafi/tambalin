@@ -53,7 +53,7 @@ public class MitraRegisterScreen extends AppCompatActivity {
         txtnamausaha = findViewById(R.id.editTextWorkName);
         txtalamat = findViewById(R.id.editTextMitraAdress);
 
-        findViewById(R.id.buttonMitra).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.MitraRegister).setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 user = txtuser.getText().toString();
                 password = LoginScreen.md5(txtpass.getText().toString());
@@ -61,8 +61,8 @@ public class MitraRegisterScreen extends AppCompatActivity {
                 telp = txttelp.getText().toString();
                 usaha = txtnamausaha.getText().toString();
                 alamat = txtalamat.getText().toString();
-
                 new UploadFileToServer().execute();
+
 //                if (isEmailValid(email)) {
 //                    new UploadFileToServer().execute();
 //                } else {
@@ -90,7 +90,7 @@ public class MitraRegisterScreen extends AppCompatActivity {
     private class UploadFileToServer extends AsyncTask<Void, Integer, String> {
         @Override
         protected void onPreExecute() {
-            progDailog = new ProgressDialog(UserRegisterScreen.this);
+            progDailog = new ProgressDialog(MitraRegisterScreen.this);
             progDailog.setMessage("Mendaftar...");
             progDailog.setIndeterminate(false);
             progDailog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
