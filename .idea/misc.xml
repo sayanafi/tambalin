@@ -3,7 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/zulka/Documents/Project Tambalin/tambalin/app/src/main/res/layout/activity_map_screen.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/zulka/Documents/Project Tambalin/tambalin/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.121" />
+        <entry key="..\:/Users/zulka/Documents/Project Tambalin/tambalin/app/src/main/res/drawable/btn_secondary.xml" value="0.121" />
+        <entry key="..\:/Users/zulka/Documents/Project Tambalin/tambalin/app/src/main/res/drawable/form.xml" value="0.121" />
+        <entry key="..\:/Users/zulka/Documents/Project Tambalin/tambalin/app/src/main/res/drawable/ic_asset_1_1.xml" value="0.121" />
+        <entry key="..\:/Users/zulka/Documents/Project Tambalin/tambalin/app/src/main/res/drawable/ic_launcher_background.xml" value="0.121" />
+        <entry key="..\:/Users/zulka/Documents/Project Tambalin/tambalin/app/src/main/res/layout/activity_login_screen.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/zulka/Documents/Project Tambalin/tambalin/app/src/main/res/layout/activity_map_screen.xml" value="0.176" />
       </map>
     </option>
   </component>

@@ -1,5 +1,8 @@
 package com.naplastech.tambalin.MapScreen;
 
+import static org.osmdroid.views.overlay.gridlines.LatLonGridlineOverlay.fontColor;
+import static org.osmdroid.views.overlay.gridlines.LatLonGridlineOverlay.fontSizeDp;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -20,12 +23,19 @@ import org.osmdroid.config.Configuration;
 import org.osmdroid.tileprovider.tilesource.TileSourceFactory;
 import org.osmdroid.util.GeoPoint;
 import org.osmdroid.views.MapView;
+import org.osmdroid.views.overlay.Marker;
+import org.osmdroid.views.overlay.compass.CompassOverlay;
+import org.osmdroid.views.overlay.compass.InternalCompassOrientationProvider;
+import org.osmdroid.views.overlay.mylocation.GpsMyLocationProvider;
+import org.osmdroid.views.overlay.mylocation.MyLocationNewOverlay;
 
 import java.util.ArrayList;
 
 public class MapScreen extends AppCompatActivity {
     private final int REQUEST_PERMISSIONS_REQUEST_CODE = 1;
     private MapView map = null;
+    MyLocationNewOverlay myLocationOverlay;
+    CompassOverlay mCompassOverlay;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -51,16 +61,35 @@ public class MapScreen extends AppCompatActivity {
         map.setBuiltInZoomControls(true);
         map.setMultiTouchControls(true);
         IMapController mapController = map.getController();
-        mapController.setZoom(9.5);
+        mapController.setZoom(13.0);
         GeoPoint startPoint = new GeoPoint(-7.250445, 112.768845);
         mapController.setCenter(startPoint);
 
-//        requestPermissionsIfNecessary(
-//                // if you need to show the current location, uncomment the line below
-//                // Manifest.permission.ACCESS_FINE_LOCATION,
-//                // WRITE_EXTERNAL_STORAGE is required in order to show the map
-//                Manifest.permission.WRITE_EXTERNAL_STORAGE
-//        );
+        // Lokasi Terkini
+        this.myLocationOverlay = new MyLocationNewOverlay(new GpsMyLocationProvider(this),map);
+        this.myLocationOverlay.enableMyLocation();
+        map.getOverlays().add(this.myLocationOverlay);
+
+        // Kompas
+        this.mCompassOverlay = new CompassOverlay(this, new InternalCompassOrientationProvider(this), map);
+        this.mCompassOverlay.enableCompass();
+        map.getOverlays().add(this.mCompassOverlay);
+
+        // Marker
+        Marker startMarker = new Marker(map);
+        startMarker.setPosition(startPoint);
+        startMarker.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_BOTTOM);
+        map.getOverlays().add(startMarker);
+        startMarker.setIcon(getResources().getDrawable(R.drawable.marker));
+        startMarker.setTitle("Start point");
+
+        requestPermissionsIfNecessary(new String[]{
+                // Wird später auskommentiert, da GNSS noch nicht benötigt wird
+                // Manifest.permission.ACCESS_FINE_LOCATION,
+                // WRITE_EXTERNAL_STORAGE is required in order to show the map
+                Manifest.permission.WRITE_EXTERNAL_STORAGE,
+//                Manifest.permission.ACCESS_FINE_LOCATION
+        });
     }
 
     @Override
