@@ -14,7 +14,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Tambalin">
-        <activity android:name=".MitraRegisterScreen"></activity>
+        <activity android:name=".Pilihan"></activity>
+        <activity android:name=".MitraRegisterScreen" />
         <activity android:name=".UserRegisterScreen" />
         <activity android:name=".MapScreen.MapScreen" />
         <activity android:name=".UserScreen.LoginScreen" />
@@ -22,8 +23,7 @@
         <activity android:name=".MainScreen.HomeP" />
         <activity android:name=".MainActivity" />
         <activity android:name=".FirstScreen.OnboardingScreen" />
-        <activity
-            android:name=".FirstScreen.SplashScreen">
+        <activity android:name=".FirstScreen.SplashScreen">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
 
