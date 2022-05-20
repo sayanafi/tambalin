@@ -115,7 +115,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:paddingBottom="20dp">
+                android:paddingBottom="30dp">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -159,10 +159,10 @@
                 android:layout_height="60dp"
                 android:layout_gravity="center"
                 android:layout_marginBottom="10dp"
-                android:background="@drawable/regis_button"
+                android:background="@drawable/btn_secondary"
                 android:text="Daftar"
                 android:textAllCaps="false"
-                android:textColor="#2EA6BF"
+                android:textColor="@color/tosca_1"
                 android:textSize="18dp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toTopOf="@+id/textView"
