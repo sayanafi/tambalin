@@ -1,22 +1,17 @@
 package com.naplastech.tambalin.MapScreen;
 
-import static org.osmdroid.views.overlay.gridlines.LatLonGridlineOverlay.fontColor;
-import static org.osmdroid.views.overlay.gridlines.LatLonGridlineOverlay.fontSizeDp;
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.os.Bundle;
-
-import com.naplastech.tambalin.R;
-
 import android.Manifest;
 import android.content.Context;
 import android.content.pm.PackageManager;
+import android.os.Bundle;
 import android.preference.PreferenceManager;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+
+import com.naplastech.tambalin.R;
 
 import org.osmdroid.api.IMapController;
 import org.osmdroid.config.Configuration;
@@ -25,7 +20,6 @@ import org.osmdroid.util.GeoPoint;
 import org.osmdroid.views.MapView;
 import org.osmdroid.views.overlay.Marker;
 import org.osmdroid.views.overlay.compass.CompassOverlay;
-import org.osmdroid.views.overlay.compass.InternalCompassOrientationProvider;
 import org.osmdroid.views.overlay.mylocation.GpsMyLocationProvider;
 import org.osmdroid.views.overlay.mylocation.MyLocationNewOverlay;
 
@@ -62,8 +56,11 @@ public class MapScreen extends AppCompatActivity {
         map.setMultiTouchControls(true);
         IMapController mapController = map.getController();
         mapController.setZoom(13.0);
-        GeoPoint startPoint = new GeoPoint(-7.250445, 112.768845);
+        GeoPoint startPoint = new GeoPoint(-7.253007965750139, 112.77006039641445);
         mapController.setCenter(startPoint);
+
+        GeoPoint startPoint2 = new GeoPoint(-7.3268735074444375, 112.72224819696986);
+        mapController.setCenter(startPoint2);
 
         // Lokasi Terkini
         this.myLocationOverlay = new MyLocationNewOverlay(new GpsMyLocationProvider(this),map);
@@ -71,9 +68,9 @@ public class MapScreen extends AppCompatActivity {
         map.getOverlays().add(this.myLocationOverlay);
 
         // Kompas
-        this.mCompassOverlay = new CompassOverlay(this, new InternalCompassOrientationProvider(this), map);
-        this.mCompassOverlay.enableCompass();
-        map.getOverlays().add(this.mCompassOverlay);
+        // this.mCompassOverlay = new CompassOverlay(this, new InternalCompassOrientationProvider(this), map);
+        // this.mCompassOverlay.enableCompass();
+        // map.getOverlays().add(this.mCompassOverlay);
 
         // Marker
         Marker startMarker = new Marker(map);
@@ -81,7 +78,14 @@ public class MapScreen extends AppCompatActivity {
         startMarker.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_BOTTOM);
         map.getOverlays().add(startMarker);
         startMarker.setIcon(getResources().getDrawable(R.drawable.marker));
-        startMarker.setTitle("Start point");
+        startMarker.setTitle("Tambal Ban Cak Alvin \n Desa Ploso, Tambak Sari, Surabaya");
+
+        Marker startMarker2 = new Marker(map);
+        startMarker2.setPosition(startPoint2);
+        startMarker2.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_BOTTOM);
+        map.getOverlays().add(startMarker2);
+        startMarker2.setIcon(getResources().getDrawable(R.drawable.marker));
+        startMarker2.setTitle("Tambal Ban Pak Jo \n Jl.Gayung Kebonsari X12-2, Surabaya");
 
         requestPermissionsIfNecessary(new String[]{
                 // Wird später auskommentiert, da GNSS noch nicht benötigt wird
@@ -91,6 +95,7 @@ public class MapScreen extends AppCompatActivity {
 //                Manifest.permission.ACCESS_FINE_LOCATION
         });
     }
+
 
     @Override
     public void onResume() {
@@ -143,4 +148,6 @@ public class MapScreen extends AppCompatActivity {
                     REQUEST_PERMISSIONS_REQUEST_CODE);
         }
     }
+
+
 }
