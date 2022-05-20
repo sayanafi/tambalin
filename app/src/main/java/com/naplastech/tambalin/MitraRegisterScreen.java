@@ -61,7 +61,14 @@ public class MitraRegisterScreen extends AppCompatActivity {
                 telp = txttelp.getText().toString();
                 usaha = txtnamausaha.getText().toString();
                 alamat = txtalamat.getText().toString();
-                new UploadFileToServer().execute();
+                try {
+                    new UploadFileToServer().execute();
+                }
+                catch(Exception error1) {
+                    Log.e("er1", "The exception caught while executing the process. (error1)");
+                    error1.printStackTrace();
+                }
+
 
 //                if (isEmailValid(email)) {
 //                    new UploadFileToServer().execute();
@@ -124,10 +131,11 @@ public class MitraRegisterScreen extends AppCompatActivity {
                     });
             entity.addPart("user", new StringBody(user + ""));
             entity.addPart("kota", new StringBody(kota + ""));
-            entity.addPart("telp", new StringBody(telp + ""));
-            entity.addPart("password", new StringBody(password + ""));
             entity.addPart("usaha" , new StringBody(usaha + ""));
             entity.addPart("alamat", new StringBody(alamat + ""));
+            entity.addPart("telp", new StringBody(telp + ""));
+            entity.addPart("password", new StringBody(password + ""));
+
 
 
             totalSize = entity.getContentLength();
