@@ -12,6 +12,6 @@ public class RegisterP extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getSupportActionBar().hide();
-        setContentView(R.layout.activity_register_screen);
+        setContentView(R.layout.activity_register_p);
     }
 }

@@ -41,50 +41,9 @@
                     android:layout_marginBottom="30dp"
                     android:fontFamily="@font/regular"
                     android:lineHeight="25dp"
-                    android:text="Kamu bisa memilih mendaftar sebagai Mitra
-    atau Pengendara"
+                    android:text="Silahkan daftar akun sebagai Pengendara"
                     android:textColor="@color/descFont"
                     android:textSize="16dp" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="20dp">
-
-                    <Button
-                        android:id="@+id/switchP"
-                        android:layout_width="160dp"
-                        android:layout_height="60dp"
-                        android:layout_gravity="center"
-                        android:layout_marginRight="15dp"
-                        android:layout_marginBottom="15dp"
-                        android:background="@drawable/toggle"
-                        android:text="Pengendara"
-                        android:textAllCaps="false"
-                        android:textColor="#FFFFFF"
-                        android:textSize="18dp"
-                        android:textStyle="bold"
-                        app:layout_constraintBottom_toTopOf="@+id/textView"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent" />
-
-                    <Button
-                        android:id="@+id/switchM"
-                        android:layout_width="match_parent"
-                        android:layout_height="60dp"
-                        android:layout_gravity="center"
-                        android:layout_marginBottom="15dp"
-                        android:background="@drawable/toggle"
-                        android:text="Mitra"
-                        android:textAllCaps="false"
-                        android:textColor="#ffffff"
-                        android:textSize="18dp"
-                        android:textStyle="bold"
-                        app:layout_constraintBottom_toTopOf="@+id/textView"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent" />
-
-                </LinearLayout>
 
 
                 <TextView
@@ -98,7 +57,7 @@
                     app:layout_constraintBottom_toTopOf="@+id/editTextUser" />
 
                 <EditText
-                    android:id="@+id/editNamaMitra"
+                    android:id="@+id/editNamaP"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
                     android:layout_gravity="center"
@@ -127,7 +86,7 @@
                     app:layout_constraintBottom_toTopOf="@+id/editTextPassword" />
 
                 <EditText
-                    android:id="@+id/editKotaMitra"
+                    android:id="@+id/editKotaP"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
                     android:layout_gravity="center"
@@ -160,7 +119,7 @@
                     android:layout_marginBottom="10dp">
 
                     <CheckBox
-                        android:id="@+id/pilNonTubles"
+                        android:id="@+id/pilNonTublesP"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Non tubles"
@@ -168,7 +127,7 @@
                         android:textSize="15dp" />
 
                     <CheckBox
-                        android:id="@+id/pilTubles"
+                        android:id="@+id/pilTublesP"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
@@ -189,7 +148,7 @@
                     app:layout_constraintBottom_toTopOf="@+id/editTextUser" />
 
                 <EditText
-                    android:id="@+id/editTextUser"
+                    android:id="@+id/editNomorP"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
                     android:layout_gravity="center"
@@ -218,7 +177,7 @@
                     app:layout_constraintBottom_toTopOf="@+id/editTextPassword" />
 
                 <EditText
-                    android:id="@+id/editTextPassword"
+                    android:id="@+id/editPassP"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
                     android:layout_gravity="center"
