@@ -156,7 +156,7 @@ public class LoginScreen extends AppCompatActivity {
                     String[] hasil = result.split("\\|");
                     SharedPreferences.Editor mEditor = getSharedPreferences("MOBILE", 0).edit();
                     mEditor.putString("user", hasil[0]).apply();
-//                    mEditor.putString("email", hasil[1]).apply();
+                    mEditor.putString("password", hasil[1]).apply();
 //                    mEditor.putString("ponsel", hasil[2]).apply();
 
                     Intent intent = new Intent(LoginScreen.this, MapScreen.class);
