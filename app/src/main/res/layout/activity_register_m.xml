@@ -41,7 +41,7 @@
                     android:layout_marginBottom="30dp"
                     android:fontFamily="@font/regular"
                     android:lineHeight="25dp"
-                    android:text="Silahkan daftar akun sebagai Pengendara"
+                    android:text="Silahkan daftar akun sebagai Mitra"
                     android:textColor="@color/descFont"
                     android:textSize="16dp" />
 
