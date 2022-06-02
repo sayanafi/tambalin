@@ -1,14 +1,17 @@
 package com.naplastech.tambalin.UserScreen;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 
-public class RegisterScreen extends AppCompatActivity {
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.naplastech.tambalin.R;
+
+public class RegisterM extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_register_screen);
+        getSupportActionBar().hide();
+        setContentView(R.layout.activity_register_m);
     }
 }

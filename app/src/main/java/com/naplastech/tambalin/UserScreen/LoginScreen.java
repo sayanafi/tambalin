@@ -1,6 +1,8 @@
 package com.naplastech.tambalin.UserScreen;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
@@ -13,7 +15,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.naplastech.tambalin.MapScreen.MapScreen;
-import com.naplastech.tambalin.Pilihan;
 import com.naplastech.tambalin.R;
 
 import org.apache.http.entity.mime.content.StringBody;
@@ -71,7 +72,51 @@ public class LoginScreen extends AppCompatActivity {
         findViewById(R.id.buttonRegister).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(LoginScreen.this, Pilihan.class));
+                AlertDialog.Builder builder = new AlertDialog.Builder(LoginScreen.this);
+                builder.setTitle("Daftar Akun");
+                builder.setMessage("Kamu bisa memilih mendaftar sebagai Mitra dan Pengendara");
+
+                builder.setPositiveButton("Pengendara",new DialogInterface
+                        .OnClickListener() {
+
+                    @Override
+                    public void onClick(DialogInterface dialog,
+                                        int which)
+                    {
+
+                        Intent intent = new Intent(LoginScreen.this, RegisterP.class);
+                        startActivity(intent);
+                        finish();
+
+                    }
+                });
+                builder.setNeutralButton("Batal",new DialogInterface
+                        .OnClickListener() {
+
+                    @Override
+                    public void onClick(DialogInterface dialog,
+                                        int which)
+                    {
+                        dialog.cancel();
+                    }
+                });
+                builder.setNegativeButton("Mitra",new DialogInterface
+                        .OnClickListener() {
+
+                    @Override
+                    public void onClick(DialogInterface dialog,
+                                        int which)
+                    {
+
+                        Intent intent = new Intent(LoginScreen.this, RegisterM.class);
+                        startActivity(intent);
+                        finish();
+
+                    }
+                });
+
+                AlertDialog dialog = builder.create();
+                dialog.show();
             }
         });
 
