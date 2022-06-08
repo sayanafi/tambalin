@@ -156,7 +156,7 @@ public class LoginScreen extends AppCompatActivity {
         }
 
         private String uploadFile() throws Exception {
-            URL url = new URL("https://tambalin.my.id/login.php");
+            URL url = new URL("https://tambalin.my.id/dataUser.php");
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
             AndroidMultiPartEntity entity = new AndroidMultiPartEntity(
                     new AndroidMultiPartEntity.ProgressListener() {
@@ -165,8 +165,8 @@ public class LoginScreen extends AppCompatActivity {
                             publishProgress((int) ((num / (float) totalSize) * 100));
                         }
                     });
-            entity.addPart("user", new StringBody(user + ""));
-            entity.addPart("password", new StringBody(password + ""));
+            entity.addPart("no_hp", new StringBody(user + ""));
+            entity.addPart("pwd", new StringBody(password + ""));
 
             totalSize = entity.getContentLength();
             con.setRequestMethod("POST");
@@ -200,9 +200,9 @@ public class LoginScreen extends AppCompatActivity {
                 if (!result.equalsIgnoreCase("FAILED")) {
                     String[] hasil = result.split("\\|");
                     SharedPreferences.Editor mEditor = getSharedPreferences("MOBILE", 0).edit();
-                    mEditor.putString("user", hasil[0]).apply();
-                    mEditor.putString("password", hasil[1]).apply();
-//                    mEditor.putString("ponsel", hasil[2]).apply();
+                    mEditor.putString("no_hp", hasil[0]).apply();
+                    mEditor.putString("pwd", hasil[0]).apply();
+//                  mEditor.putString("ponsel", hasil[2]).apply();
 
                     Intent intent = new Intent(LoginScreen.this, MapScreen.class);
                     startActivity(intent);
