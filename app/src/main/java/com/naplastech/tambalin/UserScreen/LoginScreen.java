@@ -14,7 +14,7 @@ import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.snackbar.Snackbar;
-import com.naplastech.tambalin.MapScreen.MapScreen;
+import com.naplastech.tambalin.MainScreen.HomeM;
 import com.naplastech.tambalin.R;
 
 import org.apache.http.entity.mime.content.StringBody;
@@ -204,7 +204,7 @@ public class LoginScreen extends AppCompatActivity {
                     mEditor.putString("pwd", hasil[0]).apply();
 //                  mEditor.putString("ponsel", hasil[2]).apply();
 
-                    Intent intent = new Intent(LoginScreen.this, MapScreen.class);
+                    Intent intent = new Intent(LoginScreen.this, HomeM.class);
                     startActivity(intent);
                     finish();
                 } else {
