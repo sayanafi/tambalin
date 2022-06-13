@@ -64,7 +64,7 @@
                 app:layout_constraintBottom_toTopOf="@+id/editTextUser" />
 
             <EditText
-                android:id="@+id/editTextUser"
+                android:id="@+id/editTelp"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_gravity="center"
@@ -93,7 +93,7 @@
                 app:layout_constraintBottom_toTopOf="@+id/editTextPassword" />
 
             <EditText
-                android:id="@+id/editTextPassword"
+                android:id="@+id/editPass"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_gravity="center"
@@ -144,7 +144,7 @@
                 android:layout_gravity="center"
                 android:layout_marginBottom="15dp"
                 android:background="@drawable/login_button"
-                android:text="Masuk"
+                android:text="Masyuk"
                 android:textAllCaps="false"
                 android:textColor="#ffffff"
                 android:textSize="18dp"

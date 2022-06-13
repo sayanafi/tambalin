@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1056920944460",
+    "project_id": "tambalin-79727",
+    "storage_bucket": "tambalin-79727.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1056920944460:android:b37096660f4d5af77919e9",
+        "android_client_info": {
+          "package_name": "com.naplastech.tambalin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1056920944460-qio56d7ceud9cuidsemvhu9sensiuank.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDYtbs0Hj2siMG-_ojnnIbaZoOQFkC-RR0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1056920944460-qio56d7ceud9cuidsemvhu9sensiuank.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

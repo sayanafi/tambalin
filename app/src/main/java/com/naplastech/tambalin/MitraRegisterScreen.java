@@ -56,7 +56,7 @@ public class MitraRegisterScreen extends AppCompatActivity {
         findViewById(R.id.MitraRegister).setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 user = txtuser.getText().toString();
-                password = LoginScreen.md5(txtpass.getText().toString());
+//                password = LoginScreen.md5(txtpass.getText().toString());
                 kota = txtkota.getText().toString();
                 telp = txttelp.getText().toString();
                 usaha = txtnamausaha.getText().toString();

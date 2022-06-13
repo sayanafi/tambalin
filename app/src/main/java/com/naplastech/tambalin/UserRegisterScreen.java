@@ -52,7 +52,7 @@ public class UserRegisterScreen extends AppCompatActivity {
         findViewById(R.id.UserRegister).setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 user = txtuser.getText().toString();
-                password = LoginScreen.md5(txtpass.getText().toString());
+//                password = LoginScreen.md5(txtpass.getText().toString());
                 kota = txtkota.getText().toString();
                 telp = txttelp.getText().toString();
                 new UploadFileToServer().execute();

@@ -222,7 +222,7 @@
                 </LinearLayout>
 
                 <Button
-                    android:id="@+id/buttonRegisterU"
+                    android:id="@+id/buttonRegisterP"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
                     android:layout_gravity="center"
