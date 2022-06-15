@@ -5,14 +5,24 @@ public class usermodels {
     private String nama;
     private String notelp;
     private String alamat;
+    private String role;
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
 
     public usermodels(){}
 
-    public usermodels(String password, String nama, String notelp, String alamat) {
+    public usermodels(String password, String nama, String notelp, String alamat, String role) {
         this.password = password;
         this.nama = nama;
         this.notelp = notelp;
         this.alamat = alamat;
+        this.role = role;
     }
 
 

@@ -20,6 +20,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.naplastech.tambalin.R;
+import com.naplastech.tambalin.usermodels;
 
 import org.apache.http.entity.mime.content.StringBody;
 
@@ -28,6 +29,8 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class RegisterP extends AppCompatActivity {
 
@@ -48,22 +51,25 @@ public class RegisterP extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         getSupportActionBar().hide();
         setContentView(R.layout.activity_register_p);
-
+        String role = getIntent().getStringExtra("role");
         Button btnRegis = findViewById(R.id.buttonRegisterP);
         final EditText editNamaP =findViewById(R.id.editNamaP);
         final EditText ediTelpP =findViewById(R.id.editNomorP);
         final EditText editKotaP =findViewById(R.id.editKotaP);
         final EditText editPassP = findViewById(R.id.editPassP);
-        btnRegis.setOnClickListener(view -> cekNomor());
-
+        btnRegis.setOnClickListener(view ->  addData(editPassP.getText().toString(),ediTelpP.getText().toString()));
     }
 
 
     private void cekNomor(){
         final EditText editNoP =findViewById(R.id.editNomorP);
-        if (editNoP.getText().toString().length()>=10 && editNoP.getText().toString().length()<=14){
+        if (editNoP.getText().toString().length()>=10 && editNoP.getText().toString().length()<=14)
+        {
+//            Toast toast = Toast.makeText(getApplicationContext(),"Nyesss",Toast.LENGTH_SHORT);
+//            toast.show();
             cekValid();
-        }else {
+        }
+        else {
             Toast toast = Toast.makeText(getApplicationContext(), "Nomor Tidak Valid", Toast.LENGTH_SHORT);
             toast.show();
         }
@@ -72,7 +78,7 @@ public class RegisterP extends AppCompatActivity {
     private void cekValid(){
         final EditText editNoTelpP =findViewById(R.id.editNomorP);
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-        DatabaseReference databaseReference = firebaseDatabase.getReference(editNoTelpP.getText().toString()).child("notelp");
+        DatabaseReference databaseReference = firebaseDatabase.getReference("pengendara").child(editNoTelpP.getText().toString());
 
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
@@ -82,12 +88,14 @@ public class RegisterP extends AppCompatActivity {
                     Toast toast = Toast.makeText(getApplicationContext(),"Nomor Telah Terdaftar !",Toast.LENGTH_SHORT);
                     toast.show();
                 }else{
-                    cekPassword();
+                    //cekPassword();
+                    Toast toast = Toast.makeText(getApplicationContext(),"nyee",Toast.LENGTH_SHORT);
+                    toast.show();
                 }
             }
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                Toast toast = Toast.makeText(getApplicationContext(),"Database Error "+error,Toast.LENGTH_SHORT);
+                Toast toast = Toast.makeText(getApplicationContext(),"Database Error ",Toast.LENGTH_SHORT);
                 toast.show();
             }
         });
@@ -111,6 +119,31 @@ public class RegisterP extends AppCompatActivity {
             Toast toast = Toast.makeText(getApplicationContext(), "Password Minimal 8 Karakter", Toast.LENGTH_SHORT);
             toast.show();
         }
+    }
+
+    private void addData(String addpassword, String addtelp){
+        usermodels akun = new usermodels();
+        akun.setPassword(addpassword);
+        akun.setNotelp(addtelp);
+        FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance("https://tambalin-79727-default-rtdb.asia-southeast1.firebasedatabase.app");
+        DatabaseReference databaseReference = firebaseDatabase.getReference("pengendara").child(addtelp);
+
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                try {
+                    databaseReference.setValue(akun);
+                    Toast.makeText(getApplicationContext(),"Telah Berhasil Daftar",Toast.LENGTH_SHORT).show();
+                }catch (Exception i){
+                    Toast.makeText(getApplicationContext(),"Maaf Error",Toast.LENGTH_SHORT).show();
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast toast = Toast.makeText(getApplicationContext(),"Database Error",Toast.LENGTH_SHORT);
+                toast.show();
+            }
+        });
     }
 
 

@@ -75,8 +75,8 @@ public class LoginScreen extends AppCompatActivity {
                     public void onClick(DialogInterface dialog,
                                         int which)
                     {
-
                         Intent intent = new Intent(LoginScreen.this, RegisterP.class);
+                        intent.putExtra("role","pengendara");
                         startActivity(intent);
                         finish();
 
@@ -101,6 +101,7 @@ public class LoginScreen extends AppCompatActivity {
                     {
 
                         Intent intent = new Intent(LoginScreen.this, RegisterM.class);
+                        intent.putExtra("role","mitra");
                         startActivity(intent);
                         finish();
 
