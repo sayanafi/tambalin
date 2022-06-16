@@ -16,6 +16,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -43,7 +44,6 @@ public class LoginScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         getSupportActionBar().hide();
         setContentView(R.layout.activity_login_screen);
-
         EditText txttelp = findViewById(R.id.editTelp);
         EditText txtpass = findViewById(R.id.editPass);
 
@@ -55,9 +55,7 @@ public class LoginScreen extends AppCompatActivity {
                     Toast toasti = Toast.makeText(getApplicationContext(),"Data Kosong",Toast.LENGTH_SHORT);
                     toasti.show();
                 }else{
-                    Toast toasti = Toast.makeText(getApplicationContext(),"Nyee",Toast.LENGTH_SHORT);
                     cekdata(txttelp.getText().toString(),txtpass.getText().toString());
-
                 }
             }
         });
@@ -115,15 +113,17 @@ public class LoginScreen extends AppCompatActivity {
     }
 
     private void cekdata(String t,String p){
+        //Toast.makeText(getApplicationContext(),t+" dan "+p,Toast.LENGTH_SHORT).show();
+
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-        DatabaseReference databaseReference = firebaseDatabase.getReference(t).child("password");
+        DatabaseReference databaseReference = firebaseDatabase.getReference("pengendara").child(t);
 
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                final String dbpass =snapshot.getValue(String.class);
+                final String dbpass = snapshot.child("password").getValue(String.class);
                 if (p.equals(dbpass)){
-                    kirimbiodata(t);
+                    startActivity(new Intent(LoginScreen.this,MapScreen.class));
                 }else {
                     Toast toast = Toast.makeText(getApplicationContext(),"password salah",Toast.LENGTH_SHORT);
                     toast.show();
