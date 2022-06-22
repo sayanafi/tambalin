@@ -114,14 +114,15 @@ public class LoginScreen extends AppCompatActivity {
 
     private void cekdata(String t,String p){
         //Toast.makeText(getApplicationContext(),t+" dan "+p,Toast.LENGTH_SHORT).show();
-
-        FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+        FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance("https://tambalin-79727-default-rtdb.asia-southeast1.firebasedatabase.app");
         DatabaseReference databaseReference = firebaseDatabase.getReference("pengendara").child(t);
-
+        //DatabaseReference databaseReference = firebaseDatabase.getReference(t).child("password");
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 final String dbpass = snapshot.child("password").getValue(String.class);
+
+                //final String dbpass =snapshot.getValue(String.class);
                 if (p.equals(dbpass)){
                     startActivity(new Intent(LoginScreen.this,MapScreen.class));
                 }else {

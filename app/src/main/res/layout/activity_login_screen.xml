@@ -101,7 +101,7 @@
                 android:background="@drawable/text_space"
                 android:drawablePadding="8dp"
                 android:ems="10"
-                android:hint="********"
+                android:hint="**"
                 android:inputType="textPassword"
                 android:padding="15dp"
                 android:textColor="@color/black"
