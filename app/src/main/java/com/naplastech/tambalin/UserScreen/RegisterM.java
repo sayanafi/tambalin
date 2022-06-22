@@ -56,8 +56,8 @@ public class RegisterM extends AppCompatActivity {
         final EditText editNamaM =findViewById(R.id.editNamaM);
         final EditText ediTelpM =findViewById(R.id.editNomorM);
         final EditText editKotaM =findViewById(R.id.editKotaM);
-        final EditText editPassP = findViewById(R.id.editPassM);
-        btnRegis.setOnClickListener(view ->  addData(editPassP.getText().toString(),ediTelpM.getText().toString()));
+        final EditText editPassM = findViewById(R.id.editPassM);
+        btnRegis.setOnClickListener(view ->  addData(editPassM.getText().toString(),ediTelpM.getText().toString()));
     }
 
 
