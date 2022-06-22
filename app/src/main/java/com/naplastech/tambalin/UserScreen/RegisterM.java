@@ -53,16 +53,16 @@ public class RegisterM extends AppCompatActivity {
         setContentView(R.layout.activity_register_p);
         String role = getIntent().getStringExtra("role");
         Button btnRegis = findViewById(R.id.buttonRegisterP);
-        final EditText editNamaP =findViewById(R.id.editNamaM);
-        final EditText ediTelpP =findViewById(R.id.editNomorM);
-        final EditText editKotaP =findViewById(R.id.editKotaM);
+        final EditText editNamaM =findViewById(R.id.editNamaM);
+        final EditText ediTelpM =findViewById(R.id.editNomorM);
+        final EditText editKotaM =findViewById(R.id.editKotaM);
         final EditText editPassP = findViewById(R.id.editPassM);
-        btnRegis.setOnClickListener(view ->  addData(editPassP.getText().toString(),ediTelpP.getText().toString()));
+        btnRegis.setOnClickListener(view ->  addData(editPassP.getText().toString(),ediTelpM.getText().toString()));
     }
 
 
     private void cekNomor(){
-        final EditText editNoP =findViewById(R.id.editNomorP);
+        final EditText editNoP =findViewById(R.id.editNomorM);
         if (editNoP.getText().toString().length()>=10 && editNoP.getText().toString().length()<=14)
         {
 //            Toast toast = Toast.makeText(getApplicationContext(),"Nyesss",Toast.LENGTH_SHORT);
@@ -76,7 +76,7 @@ public class RegisterM extends AppCompatActivity {
     }
 
     private void cekValid(){
-        final EditText editNoTelpP =findViewById(R.id.editNomorP);
+        final EditText editNoTelpP =findViewById(R.id.editNomorM);
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
         DatabaseReference databaseReference = firebaseDatabase.getReference("pengendara").child(editNoTelpP.getText().toString());
 
@@ -103,17 +103,17 @@ public class RegisterM extends AppCompatActivity {
 
     private void cekPassword(){
 //        final EditText edtemail =findViewById(R.id.edittextemail);
-        final EditText editNamaP =findViewById(R.id.editNamaP);
-        final EditText editNoP =findViewById(R.id.editNomorP);
-        final EditText editKotaP =findViewById(R.id.editKotaP);
-        final EditText editPassP = findViewById(R.id.editPassP);
-        if (editPassP.getText().toString().length()>=8){
-            Intent intent = new Intent(RegisterP.this, com.naplastech.tambalin.UserScreen.Handlers.class);
-            intent.putExtra("nama",editNamaP.getText().toString());
-            intent.putExtra("notelp",editNoP.getText().toString());
-            intent.putExtra("alamat",editKotaP.getText().toString());
+        final EditText editNamaM =findViewById(R.id.editNamaM);
+        final EditText editNoM =findViewById(R.id.editNomorM);
+        final EditText editKotaM =findViewById(R.id.editKotaM);
+        final EditText editPassM = findViewById(R.id.editPassM);
+        if (editPassM.getText().toString().length()>=8){
+            Intent intent = new Intent(RegisterM.this, com.naplastech.tambalin.UserScreen.Handlers.class);
+            intent.putExtra("nama",editNamaM.getText().toString());
+            intent.putExtra("notelp",editNoM.getText().toString());
+            intent.putExtra("alamat",editKotaM.getText().toString());
 //            intent.putExtra("email",edtemail.getText().toString());
-            intent.putExtra("password",editPassP.getText().toString());
+            intent.putExtra("password",editPassM.getText().toString());
             startActivity(intent);
         }else {
             Toast toast = Toast.makeText(getApplicationContext(), "Password Minimal 8 Karakter", Toast.LENGTH_SHORT);
@@ -126,7 +126,7 @@ public class RegisterM extends AppCompatActivity {
         akun.setPassword(addpassword);
         akun.setNotelp(addtelp);
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance("https://tambalin-79727-default-rtdb.asia-southeast1.firebasedatabase.app");
-        DatabaseReference databaseReference = firebaseDatabase.getReference("pengendara").child(addtelp);
+        DatabaseReference databaseReference = firebaseDatabase.getReference("Mitra").child(addtelp);
 
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
