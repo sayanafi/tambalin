@@ -144,7 +144,7 @@
                 android:layout_gravity="center"
                 android:layout_marginBottom="15dp"
                 android:background="@drawable/login_button"
-                android:text="Masyuk"
+                android:text="Masuk"
                 android:textAllCaps="false"
                 android:textColor="#ffffff"
                 android:textSize="18dp"
