@@ -1,11 +1,7 @@
 package com.naplastech.tambalin.UserScreen;
 
-import android.app.ProgressDialog;
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -13,23 +9,13 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.naplastech.tambalin.MapScreen.MapScreen;
 import com.naplastech.tambalin.R;
 import com.naplastech.tambalin.usermodels;
-
-import org.apache.http.entity.mime.content.StringBody;
-
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
 
 public class RegisterM extends AppCompatActivity {
 
@@ -42,10 +28,11 @@ public class RegisterM extends AppCompatActivity {
         String role = getIntent().getStringExtra("role");
         Button btnRegis = findViewById(R.id.buttonRegisterM);
         final EditText editNamaM =findViewById(R.id.editNamaM);
+        final EditText editTempatM = findViewById(R.id.editTempatM);
         final EditText ediTelpM =findViewById(R.id.editNomorM);
         final EditText editKotaM =findViewById(R.id.editKotaM);
         final EditText editPassM = findViewById(R.id.editPassM);
-        btnRegis.setOnClickListener(view ->  addData(editPassM.getText().toString(),ediTelpM.getText().toString(),editNamaM.getText().toString()));
+        btnRegis.setOnClickListener(view ->  addData(editPassM.getText().toString(),ediTelpM.getText().toString(),editNamaM.getText().toString(),editTempatM.getText().toString(),editKotaM.getText().toString()));
     }
 
 
@@ -105,11 +92,14 @@ public class RegisterM extends AppCompatActivity {
         }
     }
 
-    private void addData(String addpassword, String addtelp, String addnama){
+    private void addData(String addpassword, String addtelp, String addnama, String addnamatempat, String addkota){
         usermodels akun = new usermodels();
         akun.setPassword(addpassword);
         akun.setNotelp(addtelp);
         akun.setNama(addnama);
+        akun.setKota(addkota);
+        akun.setNamatempat(addnamatempat);
+
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance("https://tambalin-79727-default-rtdb.asia-southeast1.firebasedatabase.app");
         DatabaseReference databaseReference = firebaseDatabase.getReference("Mitra").child(addtelp);
 
