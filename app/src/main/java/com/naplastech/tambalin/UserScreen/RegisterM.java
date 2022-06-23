@@ -97,8 +97,9 @@ public class RegisterM extends AppCompatActivity {
         akun.setPassword(addpassword);
         akun.setNotelp(addtelp);
         akun.setNama(addnama);
-        akun.setKota(addkota);
+        akun.setKota(addnamatempat);
         akun.setNamatempat(addnamatempat);
+        akun.setKota(addkota);
 
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance("https://tambalin-79727-default-rtdb.asia-southeast1.firebasedatabase.app");
         DatabaseReference databaseReference = firebaseDatabase.getReference("Mitra").child(addtelp);
