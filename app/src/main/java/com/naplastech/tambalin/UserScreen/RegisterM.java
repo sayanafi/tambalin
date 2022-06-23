@@ -45,7 +45,7 @@ public class RegisterM extends AppCompatActivity {
         final EditText ediTelpM =findViewById(R.id.editNomorM);
         final EditText editKotaM =findViewById(R.id.editKotaM);
         final EditText editPassM = findViewById(R.id.editPassM);
-        btnRegis.setOnClickListener(view ->  addData(editPassM.getText().toString(),ediTelpM.getText().toString()));
+        btnRegis.setOnClickListener(view ->  addData(editPassM.getText().toString(),ediTelpM.getText().toString(),editNamaM.getText().toString()));
     }
 
 
@@ -105,10 +105,11 @@ public class RegisterM extends AppCompatActivity {
         }
     }
 
-    private void addData(String addpassword, String addtelp){
+    private void addData(String addpassword, String addtelp, String addnama){
         usermodels akun = new usermodels();
         akun.setPassword(addpassword);
         akun.setNotelp(addtelp);
+        akun.setNama(addnama);
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance("https://tambalin-79727-default-rtdb.asia-southeast1.firebasedatabase.app");
         DatabaseReference databaseReference = firebaseDatabase.getReference("Mitra").child(addtelp);
 

@@ -131,7 +131,7 @@ public class LoginScreen extends AppCompatActivity {
                             final String dbpassword = snapshot.child("password").getValue(String.class);
                             //final String dbpass =snapshot.getValue(String.class);
                             if (p.equals(dbpassword)) {
-                                startActivity(new Intent(LoginScreen.this, MapScreen.class));
+                                startActivity(new Intent(LoginScreen.this, HomeM.class));
                             }else {
                                 Toast toast = Toast.makeText(getApplicationContext(),"password salah",Toast.LENGTH_SHORT);
                                 toast.show();
