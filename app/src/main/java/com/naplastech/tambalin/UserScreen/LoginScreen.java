@@ -17,8 +17,16 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.naplastech.tambalin.MainScreen.HomeM;
+import com.naplastech.tambalin.MainScreen.HomeP;
 import com.naplastech.tambalin.MapScreen.MapScreen;
 import com.naplastech.tambalin.R;
+import com.naplastech.tambalin.api.ApiClient;
+import com.naplastech.tambalin.api.ApiInterface;
+import com.naplastech.tambalin.api.LoginRequest;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class LoginScreen extends AppCompatActivity {
 
@@ -97,48 +105,30 @@ public class LoginScreen extends AppCompatActivity {
     }
 
     private void cekdata(String t,String p){
-
-        FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance("https://tambalin-79727-default-rtdb.asia-southeast1.firebasedatabase.app");
-        DatabaseReference databaseReference = firebaseDatabase.getReference("pengendara").child(t);
-        DatabaseReference databaseReferences = firebaseDatabase.getReference("Mitra").child(t);
-        databaseReference.addValueEventListener(new ValueEventListener() {
+        ApiInterface apiint = ApiClient.getClient().create(ApiInterface.class);
+        Call<LoginRequest> call = apiint.tesLogin(t,p);
+        call.enqueue(new Callback<LoginRequest>() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                final String dbpass = snapshot.child("password").getValue(String.class);
-                //final String dbpass =snapshot.getValue(String.class);
-                if (p.equals(dbpass)) {
-                    startActivity(new Intent(LoginScreen.this, MapScreen.class));
-                }else {
-                    databaseReferences.addValueEventListener(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(@NonNull DataSnapshot snapshot) {
-                            final String dbpassword = snapshot.child("password").getValue(String.class);
-                            //final String dbpass =snapshot.getValue(String.class);
-                            if (p.equals(dbpassword)) {
-                                startActivity(new Intent(LoginScreen.this, HomeM.class));
-                            }else {
-                                Toast toast = Toast.makeText(getApplicationContext(),"password salah",Toast.LENGTH_SHORT);
-                                toast.show();
+            public void onResponse(Call<LoginRequest> call, Response<LoginRequest> response) {
+                if (response.body().getStatus() == 1){
+                    if (response.body().getRole() == 0) {
+                        startActivity(new Intent(LoginScreen.this, HomeP.class));
+                    }else if (response.body().getRole() == 1){
+                        startActivity(new Intent(LoginScreen.this, HomeM.class));
+                    }
 
-                            }
-                        }
-                        @Override
-                        public void onCancelled(@NonNull DatabaseError error) {
-                            Toast toast = Toast.makeText(getApplicationContext(),"Database Error "+error,Toast.LENGTH_SHORT);
-                            toast.show();
-                        }
-                    });
-
+                }else{
+                    Toast toast = Toast.makeText(getApplicationContext(),"Login Gagal, Username atau Password salah",Toast.LENGTH_SHORT);
+                    toast.show();
                 }
             }
+
             @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Toast toast = Toast.makeText(getApplicationContext(),"Database Error "+error,Toast.LENGTH_SHORT);
+            public void onFailure(Call<LoginRequest> call, Throwable t) {
+                Toast toast = Toast.makeText(getApplicationContext(),"Terjadi kesalahan " + t.getMessage(),Toast.LENGTH_SHORT);
                 toast.show();
             }
         });
-
-
     }
 
     private void kirimbiodata(String t){
