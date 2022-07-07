@@ -10,7 +10,6 @@ import com.naplastech.tambalin.R;
 
 public class HomeM extends AppCompatActivity {
 
-    TextView NameMitra = findViewById(R.id.nameMitra);
     //eTextView OrderCount = findViewById(R.id.OrderCount);
 
     @Override
@@ -18,6 +17,8 @@ public class HomeM extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         getSupportActionBar().hide();
         setContentView(R.layout.activity_home_m);
+
+        TextView NameMitra = findViewById(R.id.nameMitra);
 
         Intent intent = getIntent();
         String namaMitra= intent.getStringExtra("namaMitra");
