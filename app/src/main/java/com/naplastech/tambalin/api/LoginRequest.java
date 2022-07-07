@@ -1,30 +1,11 @@
 package com.naplastech.tambalin.api;
 
 public class LoginRequest {
-    public String username, password;
     public Integer status, role;
 
-    public LoginRequest(String username, String password, Integer status, Integer role) {
-        this.username = username;
-        this.password = password;
+    public LoginRequest(Integer status, Integer role) {
         this.status = status;
         this.role = role;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 
     public Integer getStatus() {

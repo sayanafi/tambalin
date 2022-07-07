@@ -9,4 +9,14 @@ public interface ApiInterface {
     @FormUrlEncoded
     @POST("login/")
     Call<LoginRequest> tesLogin(@Field("username") String username, @Field("password") String password);
+
+    @FormUrlEncoded
+    @POST("regPengendara/")
+    Call<PengendaraReq> registrasiPengendara(@Field("nama") String nama,
+                                             @Field("kota") String kota,
+                                             @Field("jenis_ban") Integer jenis_ban,
+                                             @Field("no_hp") String nomor_hp,
+                                             @Field("password") String password,
+                                             @Field("role") Integer role);
+
 }

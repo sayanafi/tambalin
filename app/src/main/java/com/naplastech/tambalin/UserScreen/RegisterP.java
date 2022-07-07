@@ -1,11 +1,7 @@
 package com.naplastech.tambalin.UserScreen;
 
-import android.app.ProgressDialog;
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -13,25 +9,19 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.naplastech.tambalin.MapScreen.MapScreen;
 import com.naplastech.tambalin.R;
-import com.naplastech.tambalin.usermodels;
+import com.naplastech.tambalin.api.ApiClient;
+import com.naplastech.tambalin.api.ApiInterface;
+import com.naplastech.tambalin.api.PengendaraReq;
 
-import org.apache.http.entity.mime.content.StringBody;
-
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.util.Timer;
-import java.util.TimerTask;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class RegisterP extends AppCompatActivity {
 
@@ -41,13 +31,14 @@ public class RegisterP extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         getSupportActionBar().hide();
         setContentView(R.layout.activity_register_p);
+
         String role = getIntent().getStringExtra("role");
         Button btnRegis = findViewById(R.id.buttonRegisterP);
-        final EditText editNamaP =findViewById(R.id.editNamaP);
-        final EditText ediTelpP =findViewById(R.id.editNomorP);
-        final EditText editKotaP =findViewById(R.id.editKotaP);
+        final EditText editNamaP = findViewById(R.id.editNamaP);
+        final EditText editTelp = findViewById(R.id.editNomorP);
+        final EditText editKotaP = findViewById(R.id.editKotaP);
         final EditText editPassP = findViewById(R.id.editPassP);
-        btnRegis.setOnClickListener(view ->  addData(editPassP.getText().toString(),ediTelpP.getText().toString(),editNamaP.getText().toString(),editKotaP.getText().toString()));
+        btnRegis.setOnClickListener(view ->  addData(editPassP.getText().toString(),editTelp.getText().toString(),editNamaP.getText().toString(),editKotaP.getText().toString()));
     }
 
 
@@ -108,28 +99,26 @@ public class RegisterP extends AppCompatActivity {
     }
 
     private void addData(String addpassword, String addtelp, String addnama, String addkota){
-        usermodels akun = new usermodels();
-        akun.setPassword(addpassword);
-        akun.setNotelp(addtelp);
-        akun.setNama(addnama);
-        akun.setAlamat(addkota);
-        FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance("https://tambalin-79727-default-rtdb.asia-southeast1.firebasedatabase.app");
-        DatabaseReference databaseReference = firebaseDatabase.getReference("pengendara").child(addtelp);
-
-        databaseReference.addValueEventListener(new ValueEventListener() {
+        Integer jenis_ban = 1;
+        Integer role = 0;
+        ApiInterface apiInt = ApiClient.getClient().create(ApiInterface.class);
+        Call<PengendaraReq> call = apiInt.registrasiPengendara(addnama,addkota,jenis_ban,addtelp,addpassword, role);
+        call.enqueue(new Callback<PengendaraReq>() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                try {
-                    databaseReference.setValue(akun);
-                    Toast.makeText(getApplicationContext(),"Telah Berhasil Daftar",Toast.LENGTH_SHORT).show();
+            public void onResponse(Call<PengendaraReq> call, Response<PengendaraReq> response) {
+                if (response.body().getStatus() == 1){
                     startActivity(new Intent(RegisterP.this, LoginScreen.class));
-                }catch (Exception i){
-                    Toast.makeText(getApplicationContext(),"Maaf Error",Toast.LENGTH_SHORT).show();
+                    Toast toast = Toast.makeText(getApplicationContext(),"Registrasi Berhasil, silahkan login",Toast.LENGTH_SHORT);
+                    toast.show();
+                }else if (response.body().getStatus() == 0){
+                    Toast toast = Toast.makeText(getApplicationContext(),"Registrasi gagal, silahkan cek kembali data anda",Toast.LENGTH_SHORT);
+                    toast.show();
                 }
             }
+
             @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Toast toast = Toast.makeText(getApplicationContext(),"Database Error",Toast.LENGTH_SHORT);
+            public void onFailure(Call<PengendaraReq> call, Throwable t) {
+                Toast toast = Toast.makeText(getApplicationContext(),"Terjadi kesalahan " + t.getMessage(),Toast.LENGTH_LONG);
                 toast.show();
             }
         });
