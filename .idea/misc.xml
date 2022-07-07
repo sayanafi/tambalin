@@ -11,13 +11,16 @@
         <entry key="..\:/Users/zulka/Documents/Project Tambalin/tambalin/app/src/main/res/layout/activity_login_screen.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/zulka/Documents/Project Tambalin/tambalin/app/src/main/res/layout/activity_map_screen.xml" value="0.176" />
         <entry key="..\:/tambalin/app/src/main/res/layout/activity_home_m.xml" value="0.35355648535564854" />
-        <entry key="..\:/tambalin/app/src/main/res/layout/activity_login_screen.xml" value="0.47244094488188976" />
+        <entry key="..\:/tambalin/app/src/main/res/layout/activity_home_p.xml" value="0.5617154811715481" />
+        <entry key="..\:/tambalin/app/src/main/res/layout/activity_login_screen.xml" value="0.3502202643171806" />
+        <entry key="..\:/tambalin/app/src/main/res/layout/activity_map_screen.xml" value="0.34205020920502094" />
         <entry key="..\:/tambalin/app/src/main/res/layout/activity_mitra_register.xml" value="0.1" />
         <entry key="..\:/tambalin/app/src/main/res/layout/activity_register_m.xml" value="0.1" />
+        <entry key="..\:/tambalin/app/src/main/res/layout/test.xml" value="0.5774058577405857" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

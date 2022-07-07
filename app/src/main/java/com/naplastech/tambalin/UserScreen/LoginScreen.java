@@ -113,13 +113,18 @@ public class LoginScreen extends AppCompatActivity {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
                             final String dbpassword = snapshot.child("password").getValue(String.class);
-                            //final String dbpass =snapshot.getValue(String.class);
+                            final String dbnamamitra = snapshot.child("nama").getValue(String.class);
+                            final String dbpass =snapshot.getValue(String.class);
                             if (p.equals(dbpassword)) {
-                                startActivity(new Intent(LoginScreen.this, HomeM.class));
+                                Intent intent = new Intent(LoginScreen.this, HomeM.class);
+                                Toast t = Toast.makeText(getApplicationContext(),dbnamamitra,Toast.LENGTH_SHORT);
+                                //Toast toast = Toast.makeText(getApplicationContext(),dbnamamitra,Toast.LENGTH_SHORT);
+                                //toast.show();
+                                intent.putExtra("namaMitra",dbnamamitra);
+                                startActivity(intent);
                             }else {
                                 Toast toast = Toast.makeText(getApplicationContext(),"password salah",Toast.LENGTH_SHORT);
                                 toast.show();
-
                             }
                         }
                         @Override
