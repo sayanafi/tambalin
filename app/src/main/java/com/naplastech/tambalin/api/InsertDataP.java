@@ -1,9 +1,9 @@
 package com.naplastech.tambalin.api;
 
-public class PengendaraReq {
+public class InsertDataP {
     Integer status; // Respon API
 
-    public PengendaraReq(Integer status) {
+    public InsertDataP(Integer status) {
         this.status = status;
     }
 

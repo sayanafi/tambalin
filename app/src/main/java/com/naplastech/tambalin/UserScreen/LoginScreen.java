@@ -44,7 +44,7 @@ public class LoginScreen extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (txttelp.getText().toString().isEmpty() || txtpass.getText().toString().isEmpty()){
-                    Toast toasti = Toast.makeText(getApplicationContext(),"Data Kosong",Toast.LENGTH_SHORT);
+                    Toast toasti = Toast.makeText(getApplicationContext(),"Username atau Password tidak boleh kosong",Toast.LENGTH_SHORT);
                     toasti.show();
                 }else{
                     cekdata(txttelp.getText().toString(),txtpass.getText().toString());
@@ -106,7 +106,7 @@ public class LoginScreen extends AppCompatActivity {
 
     private void cekdata(String t,String p){
         ApiInterface apiint = ApiClient.getClient().create(ApiInterface.class);
-        Call<LoginRequest> call = apiint.tesLogin(t,p);
+        Call<LoginRequest> call = apiint.login(t,p);
         call.enqueue(new Callback<LoginRequest>() {
             @Override
             public void onResponse(Call<LoginRequest> call, Response<LoginRequest> response) {
