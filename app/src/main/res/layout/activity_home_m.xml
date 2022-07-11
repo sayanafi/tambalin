@@ -34,7 +34,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:fontFamily="@font/bold"
-            android:text="Juki Andrianto"
+            android:text="null"
             android:textColor="@color/white"
             android:textSize="30dp" />
 

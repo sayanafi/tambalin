@@ -30,7 +30,6 @@ import retrofit2.Response;
 
 public class LoginScreen extends AppCompatActivity {
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -114,8 +113,13 @@ public class LoginScreen extends AppCompatActivity {
                     if (response.body().getRole() == 0) {
                         startActivity(new Intent(LoginScreen.this, HomeP.class));
                     }else if (response.body().getRole() == 1){
-                        startActivity(new Intent(LoginScreen.this, HomeM.class));
+                        Intent mitra = new Intent(LoginScreen.this, HomeM.class);
+                        mitra.putExtra("user_id",response.body().getId_user());
+                        Toast toast = Toast.makeText(getApplicationContext(),"User ID : " + response.body().getId_user(),Toast.LENGTH_SHORT);
+                        toast.show();
+                        startActivity(mitra);
                     }
+
 
                 }else{
                     Toast toast = Toast.makeText(getApplicationContext(),"Login Gagal, Username atau Password salah",Toast.LENGTH_SHORT);

@@ -22,4 +22,8 @@ public interface ApiInterface {
     @FormUrlEncoded
     @POST("registrasi/cek_nomor/")
     Call<CekNomor> cekNomor(@Field("no_hp") String no_hp);
+
+    @FormUrlEncoded
+    @POST("mitra/get_data/")
+    Call<Mitra> dataMitra(@Field("user_id") Integer user_id);
 }
