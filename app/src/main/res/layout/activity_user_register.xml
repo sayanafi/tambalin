@@ -9,8 +9,8 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="-40dp">
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="-16dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -20,33 +20,33 @@
             android:paddingTop="100dp"
             android:paddingEnd="20dp">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Daftar Akun"
-            android:textSize="26dp"
-            android:textColor="#323232"
-            android:paddingLeft="30dp"
-            android:fontFamily="@font/bold"
-            android:layout_marginBottom="15dp"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Lengkapi data berikut"
-            android:paddingLeft="30dp"
-            android:textColor="#909090"
-            android:layout_marginBottom="30dp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:fontFamily="@font/bold"
+                android:paddingLeft="30dp"
+                android:text="Daftar Akun"
+                android:textColor="#323232"
+                android:textSize="26dp" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Nama Lengkap"
+                android:layout_marginBottom="30dp"
                 android:paddingLeft="30dp"
+                android:text="Lengkapi data berikut"
+                android:textColor="#909090" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:paddingLeft="30dp"
+                android:text="Nama Lengkap"
                 android:textColor="#323232"
                 android:textSize="20dp"
-                android:layout_marginBottom="10dp"
-                app:layout_constraintBottom_toTopOf="@+id/editTextUserName"/>
+                app:layout_constraintBottom_toTopOf="@+id/editTextUserName" />
 
             <EditText
                 android:id="@+id/editTextUserName"
@@ -69,12 +69,12 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Domisili Kota"
+                android:layout_marginBottom="10dp"
                 android:paddingLeft="30dp"
+                android:text="Domisili Kota"
                 android:textColor="#323232"
                 android:textSize="20dp"
-                android:layout_marginBottom="10dp"
-                app:layout_constraintBottom_toTopOf="@+id/editTextCity"/>
+                app:layout_constraintBottom_toTopOf="@+id/editTextCity" />
 
             <EditText
                 android:id="@+id/editTextCity"
@@ -94,106 +94,78 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
 
+
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Jenis Ban Motor"
+                android:layout_marginBottom="10dp"
                 android:paddingLeft="30dp"
+                android:text="Nomor Handphone"
                 android:textColor="#323232"
                 android:textSize="20dp"
-                android:layout_marginBottom="10dp"
-                app:layout_constraintBottom_toTopOf="@+id/editTextUser"/>
+                app:layout_constraintBottom_toTopOf="@+id/editTextUserTelp" />
 
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    >
-                    <CheckBox
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="30dp"
-                        android:text="Non tubles"
-                        android:textSize="15dp"/>
-
-                    <CheckBox
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:text="Tubles"
-                        android:textSize="15dp"/>
-
-                </LinearLayout>
+            <EditText
+                android:id="@+id/editTextUserTelp"
+                android:layout_width="325dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/text_space"
+                android:drawablePadding="8dp"
+                android:ems="10"
+                android:foregroundTint="#fff"
+                android:hint="No telp"
+                android:inputType="number"
+                android:padding="8dp"
+                android:textColor="#80ABBE"
+                android:textSize="17dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
 
             <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Nomor Handphone"
-            android:paddingLeft="30dp"
-            android:textColor="#323232"
-            android:textSize="20dp"
-            android:layout_marginBottom="10dp"
-            app:layout_constraintBottom_toTopOf="@+id/editTextUserTelp"/>
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:paddingLeft="30dp"
+                android:text="Kata Sandi"
+                android:textColor="#323232"
+                android:textSize="20dp"
+                app:layout_constraintBottom_toTopOf="@+id/editTextUserPassword" />
 
-        <EditText
-            android:id="@+id/editTextUserTelp"
-            android:layout_width="325dp"
-            android:layout_height="50dp"
-            android:layout_gravity="center"
-            android:layout_marginBottom="16dp"
-            android:background="@drawable/text_space"
-            android:drawablePadding="8dp"
-            android:ems="10"
-            android:foregroundTint="#fff"
-            android:hint="No telp"
-            android:inputType="number"
-            android:padding="8dp"
-            android:textColor="#80ABBE"
-            android:textSize="17dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            <EditText
+                android:id="@+id/editTextUserPassword"
+                android:layout_width="325dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="32dp"
+                android:background="@drawable/text_space"
+                android:drawablePadding="8dp"
+                android:ems="10"
+                android:hint="Password"
+                android:inputType="textPassword"
+                android:padding="8dp"
+                android:textColor="#80ABBE"
+                android:textSize="17dp"
+                app:layout_constraintBottom_toTopOf="@+id/button"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Kata Sandi"
-            android:paddingLeft="30dp"
-            android:textColor="#323232"
-            android:textSize="20dp"
-            android:layout_marginBottom="10dp"
-            app:layout_constraintBottom_toTopOf="@+id/editTextUserPassword"/>
-
-        <EditText
-            android:id="@+id/editTextUserPassword"
-            android:layout_width="325dp"
-            android:layout_height="50dp"
-            android:layout_gravity="center"
-            android:layout_marginBottom="32dp"
-            android:background="@drawable/text_space"
-            android:drawablePadding="8dp"
-            android:ems="10"
-            android:hint="Password"
-            android:inputType="textPassword"
-            android:padding="8dp"
-            android:textColor="#80ABBE"
-            android:textSize="17dp"
-            app:layout_constraintBottom_toTopOf="@+id/button"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <Button
-            android:id="@+id/UserRegister"
-            android:layout_width="325dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginBottom="10dp"
-            android:background="@drawable/login_button"
-            android:text="Masuk"
-            android:textStyle="bold"
-            android:textAllCaps="false"
-            android:textColor="#ffffff"
-            android:textSize="18dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            <Button
+                android:id="@+id/UserRegister"
+                android:layout_width="325dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/login_button"
+                android:text="Masuk"
+                android:textAllCaps="false"
+                android:textColor="#ffffff"
+                android:textSize="18dp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
 
 
         </LinearLayout>
