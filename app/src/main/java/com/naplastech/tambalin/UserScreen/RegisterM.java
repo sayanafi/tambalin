@@ -28,11 +28,10 @@ public class RegisterM extends AppCompatActivity {
         String role = getIntent().getStringExtra("role");
         Button btnRegis = findViewById(R.id.buttonRegisterM);
         final EditText editNamaM =findViewById(R.id.editNamaM);
-        final EditText editTempatM = findViewById(R.id.editTempatM);
         final EditText ediTelpM =findViewById(R.id.editNomorM);
         final EditText editKotaM =findViewById(R.id.editKotaM);
         final EditText editPassM = findViewById(R.id.editPassM);
-        btnRegis.setOnClickListener(view ->  addData(editPassM.getText().toString(),ediTelpM.getText().toString(),editNamaM.getText().toString(),editTempatM.getText().toString(),editKotaM.getText().toString()));
+        btnRegis.setOnClickListener(view ->  addData(editPassM.getText().toString(),ediTelpM.getText().toString(),editNamaM.getText().toString(),editKotaM.getText().toString()));
     }
 
 
@@ -92,13 +91,11 @@ public class RegisterM extends AppCompatActivity {
         }
     }
 
-    private void addData(String addpassword, String addtelp, String addnama, String addnamatempat, String addkota){
+    private void addData(String addpassword, String addtelp, String addnama, String addkota){
         usermodels akun = new usermodels();
         akun.setPassword(addpassword);
         akun.setNotelp(addtelp);
         akun.setNama(addnama);
-        akun.setKota(addnamatempat);
-        akun.setNamatempat(addnamatempat);
         akun.setKota(addkota);
 
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance("https://tambalin-79727-default-rtdb.asia-southeast1.firebasedatabase.app");

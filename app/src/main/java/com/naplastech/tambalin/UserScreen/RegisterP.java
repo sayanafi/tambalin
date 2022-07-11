@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -36,8 +35,6 @@ public class RegisterP extends AppCompatActivity {
         final EditText editTelp = findViewById(R.id.editNomorP);
         final EditText editKotaP = findViewById(R.id.editKotaP);
         final EditText editPassP = findViewById(R.id.editPassP);
-        final CheckBox pil_non_tubles = findViewById(R.id.pilNonTublesP);
-        final CheckBox pil_tubles = findViewById(R.id.pilTublesP);
 
         btnRegis.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,7 +65,7 @@ public class RegisterP extends AppCompatActivity {
                 }
                 // ==== END OF CEK PANJANG PASSWORD ====
 
-                // CEK JENIS BAN
+                /* CEK JENIS BAN
                 if (cekData == true){
                     if (pil_non_tubles.isChecked() == true & pil_tubles.isChecked() == false){
                         jenis_ban = 0;
@@ -85,19 +82,18 @@ public class RegisterP extends AppCompatActivity {
                         toast.show();
                     }
                 }
-                // ==== END OF CEK JENIS BAN ====
+                ==== END OF CEK JENIS BAN ==== */
 
                 // ==== CEK NOMOR HP ====
                 if (cekData == true){
                     ApiInterface apiInt = ApiClient.getClient().create(ApiInterface.class);
                     Call<CekNomor> call = apiInt.cekNomor(editTelp.getText().toString());
-                    Integer finalJenis_ban = jenis_ban;
                     call.enqueue(new Callback<CekNomor>() {
                         @Override
                         public void onResponse(Call<CekNomor> call, Response<CekNomor> response) {
                             if (response.body().getStatus() == 0){
                                 // ==== KIRIM DATA ====
-                                addData(editPassP.getText().toString(),editTelp.getText().toString(),editNamaP.getText().toString(),editKotaP.getText().toString(), finalJenis_ban);
+                                addData(editPassP.getText().toString(),editTelp.getText().toString(),editNamaP.getText().toString(),editKotaP.getText().toString());
                                 // ==== END OF KIRIM DATA ====
                             }else if(response.body().getStatus() == 1){
                                 Toast toast = Toast.makeText(getApplicationContext(),"Nomor HP sudah terdaftar!",Toast.LENGTH_SHORT);
@@ -118,11 +114,10 @@ public class RegisterP extends AppCompatActivity {
 
     }
 
-    private void addData(String addpassword, String addtelp, String addnama, String addkota, Integer ban){
-        Integer jenis_ban = ban;
+    private void addData(String addpassword, String addtelp, String addnama, String addkota){
         Integer role = 0;
         ApiInterface apiInt = ApiClient.getClient().create(ApiInterface.class);
-        Call<InsertDataP> call = apiInt.registrasiPengendara(addnama,addkota,jenis_ban,addtelp,addpassword, role);
+        Call<InsertDataP> call = apiInt.registrasiPengendara(addnama,addkota,addtelp,addpassword, role);
         call.enqueue(new Callback<InsertDataP>() {
             @Override
             public void onResponse(Call<InsertDataP> call, Response<InsertDataP> response) {

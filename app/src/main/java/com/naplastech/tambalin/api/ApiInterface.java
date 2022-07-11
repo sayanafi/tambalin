@@ -14,7 +14,6 @@ public interface ApiInterface {
     @POST("registrasi/pengendara/")
     Call<InsertDataP> registrasiPengendara(@Field("nama") String nama,
                                            @Field("kota") String kota,
-                                           @Field("jenis_ban") Integer jenis_ban,
                                            @Field("no_hp") String nomor_hp,
                                            @Field("password") String password,
                                            @Field("role") Integer role);
