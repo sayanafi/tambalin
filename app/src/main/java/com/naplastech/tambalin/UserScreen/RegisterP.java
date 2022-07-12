@@ -29,22 +29,17 @@ public class RegisterP extends AppCompatActivity {
         getSupportActionBar().hide();
         setContentView(R.layout.activity_register_p);
 
-        String role = getIntent().getStringExtra("role");
         Button btnRegis = findViewById(R.id.buttonRegisterP);
-        final EditText editNamaP = findViewById(R.id.editNamaP);
-        final EditText editTelp = findViewById(R.id.editNomorP);
-        final EditText editKotaP = findViewById(R.id.editKotaP);
-        final EditText editPassP = findViewById(R.id.editPassP);
+        final EditText nama = findViewById(R.id.editNamaP);
+        final EditText no_hp = findViewById(R.id.editNomorP);
+        final EditText kota = findViewById(R.id.editKotaP);
+        final EditText password = findViewById(R.id.editPassP);
 
         btnRegis.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Integer jenis_ban = 0;
-
-
-
                 // ==== CEK DATA TIDAK KOSONG ====
-                if (editNamaP.length() > 3 & editTelp.length() > 10 & editKotaP.length() > 2){
+                if (nama.length() > 3 & no_hp.length() > 10 & kota.length() > 2){
                     cekData = true;
                 }else{
                     cekData = false;
@@ -55,7 +50,7 @@ public class RegisterP extends AppCompatActivity {
 
                 // ==== CEK PANJANG PASSWORD ====
                 if (cekData == true){
-                    if (editPassP.length() >= 6){
+                    if (password.length() >= 6){
                         cekData = true;
                     }else{
                         cekData = false;
@@ -87,13 +82,13 @@ public class RegisterP extends AppCompatActivity {
                 // ==== CEK NOMOR HP ====
                 if (cekData == true){
                     ApiInterface apiInt = ApiClient.getClient().create(ApiInterface.class);
-                    Call<CekNomor> call = apiInt.cekNomor(editTelp.getText().toString());
+                    Call<CekNomor> call = apiInt.cekNomor(no_hp.getText().toString());
                     call.enqueue(new Callback<CekNomor>() {
                         @Override
                         public void onResponse(Call<CekNomor> call, Response<CekNomor> response) {
                             if (response.body().getStatus() == 0){
                                 // ==== KIRIM DATA ====
-                                addData(editPassP.getText().toString(),editTelp.getText().toString(),editNamaP.getText().toString(),editKotaP.getText().toString());
+                                addData(password.getText().toString(),no_hp.getText().toString(),nama.getText().toString(),kota.getText().toString());
                                 // ==== END OF KIRIM DATA ====
                             }else if(response.body().getStatus() == 1){
                                 Toast toast = Toast.makeText(getApplicationContext(),"Nomor HP sudah terdaftar!",Toast.LENGTH_SHORT);
