@@ -14,8 +14,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
 import com.naplastech.tambalin.HelperClasses.SliderAdapter;
-import com.naplastech.tambalin.MapScreen.MapScreen;
 import com.naplastech.tambalin.R;
+import com.naplastech.tambalin.UserScreen.LoginScreen;
 
 public class OnboardingScreen extends AppCompatActivity {
 
@@ -45,15 +45,24 @@ public class OnboardingScreen extends AppCompatActivity {
         //Dots
         addDots(0);
         viewPager.addOnPageChangeListener(changeListener);
+
+        letsGetStarted.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent login = new Intent(OnboardingScreen.this, LoginScreen.class);
+                startActivity(login);
+                finish();
+            }
+        });
     }
 
     public void skip(View view) {
-        startActivity(new Intent(this, MapScreen.class));
+        startActivity(new Intent(this, LoginScreen.class));
         finish();
     }
 
     public void next(View view) {
-        viewPager.setCurrentItem(currentPos + 1);
+        viewPager.setCurrentItem(3);
     }
 
     private void addDots(int position) {
@@ -103,5 +112,6 @@ public class OnboardingScreen extends AppCompatActivity {
 
         }
     };
+
 
 }
