@@ -1,10 +1,14 @@
 package com.naplastech.tambalin.MainScreen;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.naplastech.tambalin.MainScreen.Mitra.ProfileM;
 import com.naplastech.tambalin.R;
 import com.naplastech.tambalin.api.ApiClient;
 import com.naplastech.tambalin.api.ApiInterface;
@@ -23,10 +27,20 @@ public class HomeM extends AppCompatActivity {
         getSupportActionBar().hide();
         setContentView(R.layout.activity_home_m);
 
+        ImageView btnprofile = findViewById(R.id.profileMenu);
+
         Integer user_id = getIntent().getIntExtra("user_id", 0);
         final TextView nama_mitra = findViewById(R.id.nameMitra);
         final TextView jum_pesanan = findViewById(R.id.jum_pesanan);
         final TextView penilaian = findViewById(R.id.penilaian);
+
+
+        btnprofile.setOnClickListener((View.OnClickListener) v -> {
+            Intent profil = new Intent(HomeM.this, ProfileM.class);
+            Intent intent = profil.putExtra("nama", nama_mitra.getText());
+            startActivity(profil);
+        });
+
 
         ApiInterface apiint = ApiClient.getClient().create(ApiInterface.class);
         Call<Mitra> call = apiint.dataMitra(user_id);

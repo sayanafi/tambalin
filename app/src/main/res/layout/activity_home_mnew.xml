@@ -2,10 +2,22 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F6F6F6"
-    tools:context=".MainScreen.HomeM">
+    android:background="#F6F6F6">
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="0dp"
+        android:layout_marginEnd="0dp"
+        android:background="?android:attr/windowBackground"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:menu="@menu/bottom_nav_menu" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -34,30 +46,9 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:fontFamily="@font/bold"
-            android:text="null"
+            android:text="Juki Andrianto"
             android:textColor="@color/white"
             android:textSize="30dp" />
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="-75dp"
-            android:layout_marginLeft="270dp">
-
-            <ImageView
-                android:id="@+id/profileMenu"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:src="@drawable/user"
-                android:scaleType="fitXY"
-                android:layout_marginRight="15dp"
-                android:background="@drawable/rounded_corner"
-                android:contentDescription="imageProfile">
-
-            </ImageView>
-
-        </LinearLayout>
 
     </LinearLayout>
 
@@ -87,7 +78,6 @@
             android:paddingLeft="7dp">
 
             <TextView
-                android:id="@+id/jum_pesanan"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -108,13 +98,12 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="191dp"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:paddingLeft="70dp">
 
             <TextView
-                android:id="@+id/penilaian"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -124,11 +113,11 @@
                 android:textSize="50dp" />
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="131dp"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
                 android:fontFamily="@font/regular"
                 android:text="Rata-rata Penilaian"
+                android:textAlignment="center"
                 android:textColor="@color/black"
                 android:textSize="12dp" />
 
@@ -166,8 +155,6 @@
             android:text="(Proses Tambal)"
             android:textColor="#2EBF4E"
             android:textSize="12dp" />
-
-
 
     </LinearLayout>
 
@@ -401,5 +388,16 @@
 
     </LinearLayout>
 
+    <fragment
+        android:id="@+id/nav_host_fragment"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:defaultNavHost="true"
+        app:layout_constraintBottom_toTopOf="@id/nav_view"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navGraph="@navigation/mobile_navigation" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
