@@ -13,5 +13,8 @@ public class LokasiM extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         getSupportActionBar().hide();
         setContentView(R.layout.activity_lokasi_m);
+
+
+
     }
 }
