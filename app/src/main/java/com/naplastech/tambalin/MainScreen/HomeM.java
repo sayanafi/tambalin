@@ -37,7 +37,8 @@ public class HomeM extends AppCompatActivity {
 
         btnprofile.setOnClickListener((View.OnClickListener) v -> {
             Intent profil = new Intent(HomeM.this, ProfileM.class);
-            Intent intent = profil.putExtra("nama", nama_mitra.getText());
+            profil.putExtra("nama", nama_mitra.getText());
+            profil.putExtra("user_id", user_id);
             startActivity(profil);
         });
 

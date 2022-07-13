@@ -21,11 +21,13 @@ public class ProfileM extends AppCompatActivity {
         Button btnlokasi = findViewById(R.id.btnTambahLokasi);
 
         String nama = getIntent().getStringExtra("nama");
+        Integer user_id = getIntent().getIntExtra("user_id",0);
         final TextView nama_mitra = findViewById(R.id.nameMitra);
         nama_mitra.setText(nama);
 
         btnlokasi.setOnClickListener((View.OnClickListener) v -> {
             Intent tmbhlokasi = new Intent(ProfileM.this, LokasiM.class);
+            tmbhlokasi.putExtra("user_id", user_id);
             startActivity(tmbhlokasi);
         });
     }
