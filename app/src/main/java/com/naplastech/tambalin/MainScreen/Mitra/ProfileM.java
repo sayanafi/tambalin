@@ -1,6 +1,7 @@
 package com.naplastech.tambalin.MainScreen.Mitra;
 
 import android.os.Bundle;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -13,5 +14,9 @@ public class ProfileM extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         getSupportActionBar().hide();
         setContentView(R.layout.activity_profile_m);
+
+        String nama = getIntent().getStringExtra("nama");
+        final TextView nama_mitra = findViewById(R.id.nameMitra);
+        nama_mitra.setText(nama);
     }
 }
