@@ -115,8 +115,6 @@ public class LoginScreen extends AppCompatActivity {
                     }else if (response.body().getRole() == 1){
                         Intent mitra = new Intent(LoginScreen.this, HomeM.class);
                         mitra.putExtra("user_id",response.body().getId_user());
-                        Toast toast = Toast.makeText(getApplicationContext(),"User ID : " + response.body().getId_user(),Toast.LENGTH_SHORT);
-                        toast.show();
                         startActivity(mitra);
                     }
 

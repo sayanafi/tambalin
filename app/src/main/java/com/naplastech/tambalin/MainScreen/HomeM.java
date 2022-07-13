@@ -2,7 +2,6 @@ package com.naplastech.tambalin.MainScreen;
 
 import android.os.Bundle;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -26,9 +25,8 @@ public class HomeM extends AppCompatActivity {
 
         Integer user_id = getIntent().getIntExtra("user_id", 0);
         final TextView nama_mitra = findViewById(R.id.nameMitra);
-
-        Toast toast = Toast.makeText(getApplicationContext(),"Halo : " + user_id,Toast.LENGTH_SHORT);
-        toast.show();
+        final TextView jum_pesanan = findViewById(R.id.jum_pesanan);
+        final TextView penilaian = findViewById(R.id.penilaian);
 
         ApiInterface apiint = ApiClient.getClient().create(ApiInterface.class);
         Call<Mitra> call = apiint.dataMitra(user_id);
@@ -37,6 +35,8 @@ public class HomeM extends AppCompatActivity {
             public void onResponse(Call<Mitra> call, Response<Mitra> response) {
                 if (response.body().getStatus() == 1){
                     nama_mitra.setText(response.body().getNama());
+                    jum_pesanan.setText(response.body().getJum_pesanan().toString());
+                    penilaian.setText(response.body().getPenilaian().toString());
                 }
             }
 

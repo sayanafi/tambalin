@@ -19,6 +19,14 @@ public interface ApiInterface {
                                            @Field("role") Integer role);
 
     @FormUrlEncoded
+    @POST("registrasi/mitra/")
+    Call<InsertDataM> registrasiMitra(@Field("nama") String nama,
+                                           @Field("kota") String kota,
+                                           @Field("no_hp") String nomor_hp,
+                                           @Field("password") String password,
+                                           @Field("role") Integer role);
+
+    @FormUrlEncoded
     @POST("registrasi/cek_nomor/")
     Call<CekNomor> cekNomor(@Field("no_hp") String no_hp);
 
