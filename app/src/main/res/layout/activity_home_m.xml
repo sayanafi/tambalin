@@ -38,6 +38,27 @@
             android:textColor="@color/white"
             android:textSize="30dp" />
 
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="-75dp"
+            android:layout_marginLeft="270dp">
+
+            <ImageView
+                android:id="@+id/profileMenu"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:src="@drawable/user"
+                android:scaleType="fitXY"
+                android:layout_marginRight="15dp"
+                android:background="@drawable/rounded_corner"
+                android:contentDescription="imageProfile">
+
+            </ImageView>
+
+        </LinearLayout>
+
     </LinearLayout>
 
 
@@ -145,6 +166,8 @@
             android:text="(Proses Tambal)"
             android:textColor="#2EBF4E"
             android:textSize="12dp" />
+
+
 
     </LinearLayout>
 

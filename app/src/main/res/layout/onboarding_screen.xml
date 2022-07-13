@@ -5,10 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    android:padding="20dp"
+
     tools:context=".FirstScreen.OnboardingScreen">
 
-    <androidx.viewpager2.widget.ViewPager2
+    <androidx.viewpager.widget.ViewPager
         android:id="@+id/slider"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -17,9 +17,10 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-    </androidx.viewpager2.widget.ViewPager2>
+    </androidx.viewpager.widget.ViewPager>
 
     <RelativeLayout
+        android:padding="20dp"
         android:id="@+id/relativeLayout"
         android:layout_width="match_parent"
         android:layout_height="230dp"
@@ -62,11 +63,11 @@
             android:layout_alignParentBottom="true"
             android:background="@android:color/transparent"
             android:letterSpacing="0"
+            android:onClick="next"
+            android:text="@string/skip_ob"
             android:textAllCaps="false"
             android:textColor="@color/tosca_1"
-            android:textSize="16dp"
-            android:onClick="next"
-            android:text="@string/skip_ob" />
+            android:textSize="16dp" />
 
 
     </RelativeLayout>

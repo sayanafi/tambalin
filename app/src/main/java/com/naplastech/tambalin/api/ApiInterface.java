@@ -27,6 +27,14 @@ public interface ApiInterface {
                                            @Field("role") Integer role);
 
     @FormUrlEncoded
+    @POST("mitra/bengkel/")
+    Call<EditBengkel> editBengkel(@Field("user_id") Integer user_id,
+                                  @Field("nama_bengkel") String nama_bengkel,
+                                  @Field("alamat") String alamat,
+                                  @Field("jenis_ban") Integer jenis_ban,
+                                  @Field("layanan_tambahan") Integer layanan_tambahan);
+
+    @FormUrlEncoded
     @POST("registrasi/cek_nomor/")
     Call<CekNomor> cekNomor(@Field("no_hp") String no_hp);
 
