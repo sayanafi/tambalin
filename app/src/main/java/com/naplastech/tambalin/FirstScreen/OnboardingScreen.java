@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.text.Html;
 import android.view.View;
 import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -100,8 +99,6 @@ public class OnboardingScreen extends AppCompatActivity {
             } else if (position == 1) {
                 letsGetStarted.setVisibility(View.INVISIBLE);
             } else {
-                animation = AnimationUtils.loadAnimation(OnboardingScreen.this, R.anim.bottom_anim);
-                letsGetStarted.setAnimation(animation);
                 letsGetStarted.setVisibility(View.VISIBLE);
             }
 
