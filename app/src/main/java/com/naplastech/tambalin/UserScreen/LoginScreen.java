@@ -103,7 +103,9 @@ public class LoginScreen extends AppCompatActivity {
             public void onResponse(Call<LoginRequest> call, Response<LoginRequest> response) {
                 if (response.body().getStatus() == 1){
                     if (response.body().getRole() == 0) {
-                        startActivity(new Intent(LoginScreen.this, HomeP.class));
+                        Intent pengendara = new Intent(LoginScreen.this, HomeP.class);
+                        pengendara.putExtra("user_id",response.body().getId_user());
+                        startActivity(pengendara);
                         finish();
                     }else if (response.body().getRole() == 1){
                         Intent mitra = new Intent(LoginScreen.this, HomeM.class);
