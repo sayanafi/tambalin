@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -29,11 +30,18 @@ public class RegisterM extends AppCompatActivity {
         getSupportActionBar().hide();
         setContentView(R.layout.activity_register_m);
 
+        ImageView btnback = findViewById(R.id.back);
+
         Button btnRegis = findViewById(R.id.buttonRegisterM);
         final EditText nama = findViewById(R.id.editNamaM);
         final EditText no_hp = findViewById(R.id.editNomorM);
         final EditText kota = findViewById(R.id.editKotaM);
         final EditText password = findViewById(R.id.editPassM);
+
+        btnback.setOnClickListener((View.OnClickListener) v -> {
+            Intent login = new Intent(RegisterM.this, LoginScreen.class);
+            startActivity(login);
+        });
 
         btnRegis.setOnClickListener(new View.OnClickListener() {
             @Override
