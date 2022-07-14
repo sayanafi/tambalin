@@ -3,28 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/CHAIRUNNISA/Documents/GitHub/tambalin/app/src/main/res/layout/activity_profile_m.xml" value="0.22" />
         <entry key="..\:/Users/zulka/Documents/Project Tambalin/tambalin/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.121" />
         <entry key="..\:/Users/zulka/Documents/Project Tambalin/tambalin/app/src/main/res/drawable/btn_secondary.xml" value="0.121" />
         <entry key="..\:/Users/zulka/Documents/Project Tambalin/tambalin/app/src/main/res/drawable/form.xml" value="0.121" />
         <entry key="..\:/Users/zulka/Documents/Project Tambalin/tambalin/app/src/main/res/drawable/ic_asset_1_1.xml" value="0.121" />
         <entry key="..\:/Users/zulka/Documents/Project Tambalin/tambalin/app/src/main/res/drawable/ic_launcher_background.xml" value="0.121" />
-        <entry key="..\:/Users/zulka/Documents/Project Tambalin/tambalin/app/src/main/res/layout/activity_home_m.xml" value="0.2" />
-        <entry key="..\:/Users/zulka/Documents/Project Tambalin/tambalin/app/src/main/res/layout/activity_home_p.xml" value="0.5864553314121037" />
         <entry key="..\:/Users/zulka/Documents/Project Tambalin/tambalin/app/src/main/res/layout/activity_login_screen.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/zulka/Documents/Project Tambalin/tambalin/app/src/main/res/layout/activity_map_screen.xml" value="0.176" />
-        <entry key="..\:/Users/zulka/Documents/Project Tambalin/tambalin/app/src/main/res/layout/activity_register_m.xml" value="0.8289473684210527" />
-        <entry key="..\:/Users/zulka/Documents/Project Tambalin/tambalin/app/src/main/res/layout/activity_register_p.xml" value="0.8289473684210527" />
-        <entry key="..\:/tambalin/app/src/main/res/layout/activity_home_m.xml" value="0.2" />
-        <entry key="..\:/tambalin/app/src/main/res/layout/activity_home_p.xml" value="0.1" />
-        <entry key="..\:/tambalin/app/src/main/res/layout/activity_login_screen.xml" value="0.3502202643171806" />
-        <entry key="..\:/tambalin/app/src/main/res/layout/activity_main.xml" value="0.3389121338912134" />
-        <entry key="..\:/tambalin/app/src/main/res/layout/activity_map_screen.xml" value="0.22784810126582278" />
-        <entry key="..\:/tambalin/app/src/main/res/layout/activity_mitra_register.xml" value="0.1" />
-        <entry key="..\:/tambalin/app/src/main/res/layout/activity_pilihan.xml" value="0.3389121338912134" />
-        <entry key="..\:/tambalin/app/src/main/res/layout/activity_profile_m.xml" value="0.6579497907949791" />
-        <entry key="..\:/tambalin/app/src/main/res/layout/activity_register_m.xml" value="0.1" />
-        <entry key="..\:/tambalin/app/src/main/res/layout/activity_register_p.xml" value="0.6579497907949791" />
-        <entry key="..\:/tambalin/app/src/main/res/layout/test.xml" value="0.5774058577405857" />
       </map>
     </option>
   </component>

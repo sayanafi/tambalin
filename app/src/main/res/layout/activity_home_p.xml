@@ -10,20 +10,22 @@
 
     <org.osmdroid.views.MapView
         android:id="@+id/map"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="180dp"
         tools:ignore="MissingConstraints" />
 
     <LinearLayout
+        android:id="@+id/linearLayout3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:background="@color/tosca_1"
         android:orientation="vertical"
-        android:paddingTop="20dp"
-        android:paddingBottom="30dp"
         android:paddingStart="30dp"
+        android:paddingTop="20dp"
         android:paddingEnd="30dp"
+        android:paddingBottom="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints">
@@ -43,7 +45,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:fontFamily="@font/bold"
-            android:text="null"
+            android:text="Zulkarnain"
             android:textColor="@color/white"
             android:textSize="30dp" />
 
