@@ -39,6 +39,10 @@ public interface ApiInterface {
     Call<CekNomor> cekNomor(@Field("no_hp") String no_hp);
 
     @FormUrlEncoded
+    @POST("pengendara/get_data/")
+    Call<Pengendara> dataPengendara(@Field("user_id") Integer user_id);
+
+    @FormUrlEncoded
     @POST("mitra/get_data/")
     Call<Mitra> dataMitra(@Field("user_id") Integer user_id);
 }

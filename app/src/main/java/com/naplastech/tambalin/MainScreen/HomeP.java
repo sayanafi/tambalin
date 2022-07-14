@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,6 +13,9 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import com.naplastech.tambalin.R;
+import com.naplastech.tambalin.api.ApiClient;
+import com.naplastech.tambalin.api.ApiInterface;
+import com.naplastech.tambalin.api.Pengendara;
 
 import org.osmdroid.api.IMapController;
 import org.osmdroid.config.Configuration;
@@ -25,6 +29,10 @@ import org.osmdroid.views.overlay.mylocation.MyLocationNewOverlay;
 
 import java.util.ArrayList;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class HomeP extends AppCompatActivity {
     private final int REQUEST_PERMISSIONS_REQUEST_CODE = 1;
     private MapView map = null;
@@ -35,6 +43,7 @@ public class HomeP extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getSupportActionBar().hide();
+
         //handle permissions first, before map is created. not depicted here
 
         //load/initialize the osmdroid configuration, this can be done
@@ -49,6 +58,27 @@ public class HomeP extends AppCompatActivity {
 
         //inflate and create the map
         setContentView(R.layout.activity_home_p);
+
+
+        final TextView nama_user = findViewById(R.id.namaPengendara);
+
+        Integer user_id = getIntent().getIntExtra("user_id", 0);
+        
+        ApiInterface apiint = ApiClient.getClient().create(ApiInterface.class);
+        Call<Pengendara> pengendara = apiint.dataPengendara(user_id);
+        pengendara.enqueue(new Callback<Pengendara>() {
+            @Override
+            public void onResponse(Call<Pengendara> call, Response<Pengendara> response) {
+                if (response.body().getStatus() == 1){
+                    nama_user.setText(response.body().getNama());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Pengendara> call, Throwable t) {
+
+            }
+        });
 
         map = (MapView) findViewById(R.id.map);
         map.setTileSource(TileSourceFactory.MAPNIK);
@@ -148,6 +178,4 @@ public class HomeP extends AppCompatActivity {
                     REQUEST_PERMISSIONS_REQUEST_CODE);
         }
     }
-
-
 }
